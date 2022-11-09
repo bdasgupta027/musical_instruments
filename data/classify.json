@@ -3,12 +3,87 @@
   "children": [
     {"name":"Idiophones (1)",
      "children": [
-       {"name":"Struck idiophones (11)"},
-       {"name":"Plucked idiophones (12)"}
+       {"name":"Struck idiophones (11)",
+       "children": [
+         {"name":"Directly struck idiophones (111)"},
+         {"name":"Indirectly struck idiophones (112)"}
+       ]},
+       {"name":"Plucked idiophones (12)",
+       "children":[
+         {"name":"In the form of a frame (121)"},
+         {"name":"In the form of a comb (122)"},
+         {"name":"Mixed sets of lamellophones (123)"}
+       ]},
+       {"name":"Friction idiophones (13)",
+       "children": [
+         {"name":"Friction sticks (131)"},
+         {"name":"Friction plaques (132)"},
+         {"name":"Friction vessels (133)"}
+       ]},
+       {"name":"Blown idiophones (12)",
+       "children": [
+         {"name":"Blown sticks (141)"},
+         {"name":"Blown plaques (142)"}
+       ]},
+       {"name":"Unclassified idiophones (15)"}
      ]},
-    {"name":"Membranophones (2)"},
-    {"name":"Chordophones (3)"},
-    {"name":"Aerophones (4)"},
+    {"name":"Membranophones (2)",
+    "children": [
+      {"name":"Struck membranophones (21)",
+      "children": [
+        {"name":"Directly struck membranophones (211)"},
+        {"name":"Shaken membranophones (212)"}
+      ]},
+      {"name":"Plucked membranophones (22)"},
+      {"name":"Friction membranophones (23)",
+      "children": [
+        {"name":"Friction drums with stick (231)"},
+        {"name":"Friction drum with cord (232)"},
+        {"name":"Hand friction drums (233)"}
+      ]},
+      {"name":"Singing membranes (kazoos) (24)",
+      "children": [
+        {"name":"Free kazoos (241)"},
+        {"name":"Tube or vessel-kazoos (242))"}
+      ]},
+      {"name":"Unclassified membranophones (25)"}
+    ]},
+    {"name":"Chordophones (3)",
+    "children": [
+      {"name":"Simple chordophones or zithers (31)",
+       "children": [
+         {"name":"Bar zithers (311)"},
+         {"name":"Tube zithers (312)"},
+         {"name":"Raft zithers (313)"},
+         {"name":"Board zithers (314)"},
+         {"name":"Trough zithers (315)"},
+         {"name":"Bar zithers (316)"}
+       ]},
+      {"name":"Composite chordophones (32)",
+      "children":[
+        {"name":"Lutes (321)"},
+        {"name":"Harps (322)"},
+        {"name":"Harp Lutes (323)"}
+      ]},
+      {"name":"Unclassified chordophones (33)"}
+    ]},
+    {"name":"Aerophones (4)",
+    "children": [
+      {"name":"Free aerophones (41)",
+      "children": [
+        {"name":"Displacement free aerophones (411)"},
+        {"name":"Interruptive free aerophones (412)"},
+        {"name":"Plosive aerophones (413)"}
+      ]},
+      {"name":"4.2  Non-free aerophones (wind instruments proper) (42)",
+      "children": [
+         {"name":"Edge-blown aerophones or flutes (421)"},
+         {"name":"Reed aerophones (422)"},
+         {"name":"Trumpets (423)"},
+         {"name":"Mixed sets of wind instruments (424)"} 
+      ]},
+      {"name":"Mixed sets of aerophones (43)"}
+    ]},
     {"name":"Electrophones (5)"}
   ]
 }
