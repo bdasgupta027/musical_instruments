@@ -1,0 +1,14 @@
+{
+  "name":"Instruments",
+  "children": [
+    {"name":"Idiophones (1)",
+     "children": [
+       {"name":"Struck idiophones (11)"},
+       {"name":"Plucked idiophones (12)"}
+     ]},
+    {"name":"Membranophones (2)"},
+    {"name":"Chordophones (3)"},
+    {"name":"Aerophones (4)"},
+    {"name":"Electrophones (5)"}
+  ]
+}
