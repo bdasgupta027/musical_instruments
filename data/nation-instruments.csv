@@ -1,138 +1,136 @@
-Nation,Instrument,"Description
-Recording",H-S number,Link 
+Nation,Instrument,Description,H-S number,Link ,Broad Type,Minor Type,Specfic Type
 Afghanistan,"rubab
-rabab","Short-necked three-stringed lute with sympathetic and drone strings, fretted and plucked with a plectrum, with a double-chambered body, the lower part of which is covered in skin, and with three main strings",321.321,Rubab (instrument) - Wikipedia
-Albania,Lahuta,,321.321,https://en.wikipedia.org/wiki/Gusle
-Arab,oud,"Pear-shaped fretless stringed instrument, with five courses of two strings and a single eleventh string, a bent back and a bowl-shaped body, often with up to three soundholes, played with a pick",321.321,Oud - Wikipedia
-Argentina,bandoneón,"Button accordion with a box shape, played with both hands using buttons that produce two sets of notes per hand",412.132,Bandoneon - Wikipedia
-Argentina,guitar,Fretted stringed instrument with a hollow body and a soundboard,321.322,Guitar - Wikipedia
+rabab","Short-necked three-stringed lute with sympathetic and drone strings, fretted and plucked with a plectrum, with a double-chambered body, the lower part of which is covered in skin, and with three main strings",321,https://en.wikipedia.org/wiki/Rubab_(instrument),Chordophone,Composite chordophone,Lute
+Albania,Lahuta,,321,https://en.wikipedia.org/wiki/Gusle,Chordophone,Composite chordophone,Lute
+Arab,oud,"Pear-shaped fretless stringed instrument, with five courses of two strings and a single eleventh string, a bent back and a bowl-shaped body, often with up to three soundholes, played with a pick",321,https://en.wikipedia.org/wiki/Oud,Chordophone,Composite chordophone,Lute
+Argentina,guitar,Fretted stringed instrument with a hollow body and a soundboard,321,https://en.wikipedia.org/wiki/Guitar,Chordophone,Composite chordophone,Lute
+Argentina,bandoneón,"Button accordion with a box shape, played with both hands using buttons that produce two sets of notes per hand",412,https://en.wikipedia.org/wiki/Bandone%C3%B3n,Aerophone,Free aerophone,Interruptive free aerophone
 Armenia,"duduk
-daduk","Double-reed pipe with wide reeds made from pieces of cane in a duckbill-type assembly, generally diatonic and with a single octave range",421.211.12,Duduk - Wikipedia
+daduk","Double-reed pipe with wide reeds made from pieces of cane in a duckbill-type assembly, generally diatonic and with a single octave range",421,https://en.wikipedia.org/wiki/Duduk,Aerophone,Non-free aerophones (wind instruments proper) ,Edge-blown aerophones or flute
 "Australian, Indigenous","didgeridoo
-didjeridu, yidaki, yiraki, magu, kanbi, ihambilbilg","Straight trumpet without fingerholes, traditionally made from a trunk or thick branch of a tree, sometimes with a rim of beeswax around the blowing end, requires circular breathing",423.121.11,Didgeridoo - Wikipedia
-Austria,Bock,"Use of goatskins in constructing the bag, similar to the common use of other goat-terms for bagpipes in other nations",422.112,Bock (bagpipe) - Wikipedia
-Azerbaijan,balaban,"Set of cylindrical shawm-like instruments, with an air reservoir like a bagpipe",422.121,https://en.wikipedia.org/wiki/Balaban_(instrument)
-Baganda peoples of Uganda,endongo,Bowl lyre made of lizardskin with strings tied to a piece of wood inserted into two holes on two arms,321.21,https://en.wikipedia.org/wiki/Endongo
-Balochs,suroz,"Bowed string instrument with a long neck, similar to a fiddle or sarangi and played vertically",321.322,https://en.wikipedia.org/wiki/Suroz
-Bangladesh,dotara,"Small stringed instrument, with plucked metal strings, elongated belly as soundboard and narrow neck ending in a pegbox, decorated with carvings of animals and covered with skin",321.322,https://en.wikipedia.org/wiki/Dotara
-Bashkir,kurai,Long open endblown flute with five fingerholes,421.111.12,https://en.wikipedia.org/wiki/Kurai_(flute)
-Basotho,lesiba,"Stringed instrument, blown rather than plucked or strummed, with a single string and tuning noose attached both to a bow and a feather quill, with a frame made from a coconut shell",311.121.222,https://en.wikipedia.org/wiki/Lesiba
+didjeridu, yidaki, yiraki, magu, kanbi, ihambilbilg","Straight trumpet without fingerholes, traditionally made from a trunk or thick branch of a tree, sometimes with a rim of beeswax around the blowing end, requires circular breathing",423,https://en.wikipedia.org/wiki/Didgeridoo,Aerophone,Non-free aerophones (wind instruments proper) ,Trumpet
+Austria,Bock,"Use of goatskins in constructing the bag, similar to the common use of other goat-terms for bagpipes in other nations",422,https://en.wikipedia.org/wiki/Bock_(bagpipe),Aerophone,Non-free aerophones (wind instruments proper) ,Reed aerophone
+Azerbaijan,balaban,"Set of cylindrical shawm-like instruments, with an air reservoir like a bagpipe",422,https://en.wikipedia.org/wiki/Balaban_(instrument),Aerophone,Non-free aerophones (wind instruments proper) ,Reed aerophone
+Baganda peoples of Uganda,endongo,Bowl lyre made of lizardskin with strings tied to a piece of wood inserted into two holes on two arms,321,https://en.wikipedia.org/wiki/Endongo,Chordophone,Composite chordophone,Lute
+Balochs,suroz,"Bowed string instrument with a long neck, similar to a fiddle or sarangi and played vertically",321,https://en.wikipedia.org/wiki/Suroz,Chordophone,Composite chordophone,Lute
+Bangladesh,dotara,"Small stringed instrument, with plucked metal strings, elongated belly as soundboard and narrow neck ending in a pegbox, decorated with carvings of animals and covered with skin",321,https://en.wikipedia.org/wiki/Dotara,Chordophone,Composite chordophone,Lute
+Bashkir,kurai,Long open endblown flute with five fingerholes,421,https://en.wikipedia.org/wiki/Kurai_(flute),Aerophone,Non-free aerophones (wind instruments proper) ,Edge-blown aerophones or flute
+Basotho,lesiba,"Stringed instrument, blown rather than plucked or strummed, with a single string and tuning noose attached both to a bow and a feather quill, with a frame made from a coconut shell",311,https://en.wikipedia.org/wiki/Lesiba,Chordophone,Simple chordophones or zither,Bar zither
 Bavaria,"zither
-Volkszither","Stringed instrument with a soundbox, with strings stretched across it, originally with four melody strings and no more than fifteen accompaniment strings",314.122,https://en.wikipedia.org/wiki/Zither
+Volkszither","Stringed instrument with a soundbox, with strings stretched across it, originally with four melody strings and no more than fifteen accompaniment strings",314,https://en.wikipedia.org/wiki/Zither,Chordophone,Simple chordophones or zither,Board zither
 Bhutan,"dranyen
-dranyen, dramnyen","Seven-stringed lute, fretless, long-necked and double-waisted with rosette-shaped sound hole",321.321,https://en.wikipedia.org/wiki/Dranyen
+dranyen, dramnyen","Seven-stringed lute, fretless, long-necked and double-waisted with rosette-shaped sound hole",321,https://en.wikipedia.org/wiki/Dranyen,Chordophone,Composite chordophone,Lute
 Bolivia,"charango
-charanga","Fretted, hollow-bodied bowl lute, usually with four or five doubled strings, with as many as eleven tunings, traditionally made from an armadillo shell",321.321,https://en.wikipedia.org/wiki/Charango
-Brazil,"guitar
-violão","Fretted six-stringed instrument with a soundboard and a hollow body, originally with steel strings, but now more commonly with nylon",321.322,https://en.wikipedia.org/wiki/Guitar
+charanga","Fretted, hollow-bodied bowl lute, usually with four or five doubled strings, with as many as eleven tunings, traditionally made from an armadillo shell",321,https://en.wikipedia.org/wiki/Charango,Chordophone,Composite chordophone,Lute
+Brazil,pandeiro,"Handheld frame drum with metal jingles (platinelas) attached, tuned through adjusting the tension of the head, can also be shaken or rasped",112,https://en.wikipedia.org/wiki/Pandeiro,Idiophone,Struck idiophone,Indirectly struck idiophone
 Brazil,berimbau,"Single-stringed musical bow
-Toque de Angola on unaccompanied berimbau (help·info)",311.121.221,https://en.wikipedia.org/wiki/Berimbau
-Brazil,pandeiro,"Handheld frame drum with metal jingles (platinelas) attached, tuned through adjusting the tension of the head, can also be shaken or rasped",112.122,https://en.wikipedia.org/wiki/Pandeiro
-Bulgaria,gaida,"Bagpipe with three types of chanters, one a simple reed, open at one end, another a small, conical tube with eight fingerholes, one of which is the flea-hole (a small hole made out of a tube that can raise any note a half-step), and the last is a long, no-holed drone",422.22,https://en.wikipedia.org/wiki/Gaida
+Toque de Angola on unaccompanied berimbau (help·info)",311,https://en.wikipedia.org/wiki/Berimbau,Chordophone,Simple chordophones or zither,Bar zither
+Brazil,"guitar
+violão","Fretted six-stringed instrument with a soundboard and a hollow body, originally with steel strings, but now more commonly with nylon",321,https://en.wikipedia.org/wiki/Guitar,Chordophone,Composite chordophone,Lute
+Bulgaria,gaida,"Bagpipe with three types of chanters, one a simple reed, open at one end, another a small, conical tube with eight fingerholes, one of which is the flea-hole (a small hole made out of a tube that can raise any note a half-step), and the last is a long, no-holed drone",422,https://en.wikipedia.org/wiki/Gaida,Aerophone,Non-free aerophones (wind instruments proper) ,Reed aerophone
 China,"guqin
-qin",A plucked seven-string zither with open strings and a range of about four octaves,312.22,https://en.wikipedia.org/wiki/Guqin
+qin",A plucked seven-string zither with open strings and a range of about four octaves,312,https://en.wikipedia.org/wiki/Guqin,Chordophone,Simple chordophones or zither,Tube zither
 China,"guzheng
-zheng, gu-zheng","Half-tube zither, rectangular with three sound holes on the bottom, now with twenty-one strings most typically, pentatonic tuning, strings are plucked by hand",312.22,https://en.wikipedia.org/wiki/Guzheng
-China,pipa,"Pear-shaped bowl lute with a neck, played by plucking",321.321,https://en.wikipedia.org/wiki/Pipa
+zheng, gu-zheng","Half-tube zither, rectangular with three sound holes on the bottom, now with twenty-one strings most typically, pentatonic tuning, strings are plucked by hand",312,https://en.wikipedia.org/wiki/Guzheng,Chordophone,Simple chordophones or zither,Tube zither
 China,"yangqin
-yang ch'in, yang qin","Hammered dulcimer, with a trapezoidal sounding board and traditionally bronze strings, struck with rubber-tipped bamboo hammers",314.122,https://en.wikipedia.org/wiki/Yangqin
-Colombia,cuatro,Fretted stringed instrument with a hollow body and with four strings,321.322,https://en.wikipedia.org/wiki/Cuatro_(instrument)
-Colombia,Tiple Colombiano,Small guitar-like fretted instrument with twelve strings arranged in four triple-strung courses.,321.322,https://en.wikipedia.org/wiki/Colombian_tiple
-Costa Rica,marimba,"Xylophone-like instrument with gourd resonators, two sets of overlapping keys, struck with mallets",111.222,https://en.wikipedia.org/wiki/Marimba
+yang ch'in, yang qin","Hammered dulcimer, with a trapezoidal sounding board and traditionally bronze strings, struck with rubber-tipped bamboo hammers",314,https://en.wikipedia.org/wiki/Yangqin,Chordophone,Simple chordophones or zither,Board zither
+China,pipa,"Pear-shaped bowl lute with a neck, played by plucking",321,https://en.wikipedia.org/wiki/Pipa,Chordophone,Composite chordophone,Lute
+Colombia,cuatro,Fretted stringed instrument with a hollow body and with four strings,321,https://en.wikipedia.org/wiki/Cuatro_(instrument),Chordophone,Composite chordophone,Lute
+Colombia,Tiple Colombiano,Small guitar-like fretted instrument with twelve strings arranged in four triple-strung courses.,321,https://en.wikipedia.org/wiki/Colombian_tiple,Chordophone,Composite chordophone,Lute
 Corsica,"cetera
-ceterina, cetara","A musical instrument of the cittern family, common in Corsica.",111.224,https://en.wikipedia.org/wiki/Cetera
-Crete,lyra,"Three-stringed fretted, pear-shaped instrument with a hollow body and a vaulted back, propped up on the knee",321.21,https://en.wikipedia.org/wiki/Cretan_lyra
+ceterina, cetara","A musical instrument of the cittern family, common in Corsica.",111,https://en.wikipedia.org/wiki/Cetera,Idiophone,Struck idiophone,Directly struck idiophone
+Costa Rica,marimba,"Xylophone-like instrument with gourd resonators, two sets of overlapping keys, struck with mallets",111,https://en.wikipedia.org/wiki/Marimba,Idiophone,Struck idiophone,Directly struck idiophone
+Crete,lyra,"Three-stringed fretted, pear-shaped instrument with a hollow body and a vaulted back, propped up on the knee",321,https://en.wikipedia.org/wiki/Cretan_lyra,Chordophone,Composite chordophone,Lute
 Croatia,"tamburica and Lijerica
-tamburitza","Lute-like stringed instrument with a long neck, picked or strummed, variable number of strings",321.321,https://en.wikipedia.org/wiki/Tamburica
-Cuba,tres,Guitar-like instrument with a neck and three courses of two strings each,321.322,https://en.wikipedia.org/wiki/Tres_(musical_instrument)
-Ghana,gyil,"Xylophone-like calabash gourd with holes covered in spider silk, wooden frame, struck with a hammer",111.222,https://en.wikipedia.org/wiki/Gyil
-Ecuador,rondador,"Set of chorded bamboo panpipes that produces two tones simultaneously, consisting of pieces of cane, placed side by side in order by size and closed at one end, played by blowing across the top of the instrument",421.112.11,https://en.wikipedia.org/wiki/Rondador
-"Egypt, Ancient",harp,"Open harp, used in widely varying forms, though originally semi-circular and with five to seven strings, number of strings increased over time, while the size decreased",322.12,https://en.wikipedia.org/wiki/Harp
-England,English concertina,"A small free reed instrument, usually hexagonal in shape. The instrument is played by moving bellows between the hands to blow air over reeds, each note being sounded by a button.",412.132,https://en.wikipedia.org/wiki/English_concertina
-Etruria,kithara,"Stringed instrument with a deep soundbox made of two tables, connected by ribs, with strings attached to a tuning bar, played with a plectrum",321.22,https://en.wikipedia.org/wiki/Kithara
+tamburitza","Lute-like stringed instrument with a long neck, picked or strummed, variable number of strings",321,https://en.wikipedia.org/wiki/Tamburica,Chordophone,Composite chordophone,Lute
+Cuba,tres,Guitar-like instrument with a neck and three courses of two strings each,321,https://en.wikipedia.org/wiki/Tres_(musical_instrument),Chordophone,Composite chordophone,Lute
+Ecuador,rondador,"Set of chorded bamboo panpipes that produces two tones simultaneously, consisting of pieces of cane, placed side by side in order by size and closed at one end, played by blowing across the top of the instrument",421,https://en.wikipedia.org/wiki/Rondador,Aerophone,Non-free aerophones (wind instruments proper) ,Edge-blown aerophones or flute
+"Egypt, Ancient",harp,"Open harp, used in widely varying forms, though originally semi-circular and with five to seven strings, number of strings increased over time, while the size decreased",322,https://en.wikipedia.org/wiki/Harp,Chordophone,Composite chordophone,Harp
+England,English concertina,"A small free reed instrument, usually hexagonal in shape. The instrument is played by moving bellows between the hands to blow air over reeds, each note being sounded by a button.",412,https://en.wikipedia.org/wiki/English_concertina,Aerophone,Free aerophone,Interruptive free aerophone
+Estonia,talharpa,Bowed lyre with no fingerboard,321,https://en.wikipedia.org/wiki/Talharpa,Chordophone,Composite chordophone,Lute
+Etruria,kithara,"Stringed instrument with a deep soundbox made of two tables, connected by ribs, with strings attached to a tuning bar, played with a plectrum",321,https://en.wikipedia.org/wiki/Kithara,Chordophone,Composite chordophone,Lute
 Finland,"kantele
-kannel","Zither–harp, traditionally with five strings, now with up to thirty, held in the lap",314.122,https://en.wikipedia.org/wiki/Kantele
+kannel","Zither–harp, traditionally with five strings, now with up to thirty, held in the lap",314,https://en.wikipedia.org/wiki/Kantele,Chordophone,Simple chordophones or zither,Board zither
 Fula,"tambin
-sereendu, fulannu","Diagonal diatonic flute without a bell, made from a conical vine, with three finger-holes and a rectangular embouchere with two wings on either side",411.111.22,https://en.wikipedia.org/wiki/Tambin
+sereendu, fulannu","Diagonal diatonic flute without a bell, made from a conical vine, with three finger-holes and a rectangular embouchere with two wings on either side",411,https://en.wikipedia.org/wiki/Tambin,Aerophone,Free aerophone,Displacement free aerophone
 Galicia,"gaita
-gaita de fole, gaita gallega","Diatonic bagpipe with a conical chanter and at least one bass drone, used to accompany both spiritual and secular, as well as lyric and dance music, usually accompanied by a drum (tambour)",422.211.2,https://en.wikipedia.org/wiki/Galician_gaita
+gaita de fole, gaita gallega","Diatonic bagpipe with a conical chanter and at least one bass drone, used to accompany both spiritual and secular, as well as lyric and dance music, usually accompanied by a drum (tambour)",422,https://en.wikipedia.org/wiki/Galician_gaita,Aerophone,Non-free aerophones (wind instruments proper) ,Reed aerophone
 Germany,"waldzither
-German lute, also applied to the lute guitar","Cittern with nine steel strings; tuned C, G G, C C, E E, G G; famous for allegedly been played by Martin Luther at the Wartburg",321.322,https://en.wikipedia.org/wiki/Waldzither
-"Greece, Modern",bouzouki,"String instrument with a pear-shaped body and a long neck, played with plectrum",321.321,https://en.wikipedia.org/wiki/Bouzouki
-Guatemala,marimba,"Xylophone-like instrument with gourd resonators, struck with mallets, with a two level keyboard so it can play the full chromatic scale",111.222,https://en.wikipedia.org/wiki/Marimba
+German lute, also applied to the lute guitar","Cittern with nine steel strings; tuned C, G G, C C, E E, G G; famous for allegedly been played by Martin Luther at the Wartburg",321,https://en.wikipedia.org/wiki/Waldzither,Chordophone,Composite chordophone,Lute
+Ghana,gyil,"Xylophone-like calabash gourd with holes covered in spider silk, wooden frame, struck with a hammer",111,https://en.wikipedia.org/wiki/Gyil,Idiophone,Struck idiophone,Directly struck idiophone
+"Greece, Modern",bouzouki,"String instrument with a pear-shaped body and a long neck, played with plectrum",321,https://en.wikipedia.org/wiki/Bouzouki,Chordophone,Composite chordophone,Lute
+Guatemala,marimba,"Xylophone-like instrument with gourd resonators, struck with mallets, with a two level keyboard so it can play the full chromatic scale",111,https://en.wikipedia.org/wiki/Marimba,Idiophone,Struck idiophone,Directly struck idiophone
 Hawaii,ukulele,"String instrument derived from the Portuguese braguinha, from the Hawaiian uku lele, jumping flea, referring to the swift fingerwork the instrument requires
-chords on a ukulele (help·info)",321.322,https://en.wikipedia.org/wiki/Ukulele
+chords on a ukulele (help·info)",321,https://en.wikipedia.org/wiki/Ukulele,Chordophone,Composite chordophone,Lute
 Hungary,"cimbalom
-czimbalom, cymbalom, cymbalum, ţambal, tsymbaly, tsimbl, santouri, santur",Chromatic hammered dulcimer with four legs,314.122,https://en.wikipedia.org/wiki/Cimbalom
+czimbalom, cymbalom, cymbalum, ţambal, tsymbaly, tsimbl, santouri, santur",Chromatic hammered dulcimer with four legs,314,https://en.wikipedia.org/wiki/Cimbalom,Chordophone,Simple chordophones or zither,Board zither
 India,"saraswati veena
-vina","Semitonically fretted lute with a long, cylindrical shape, resting on two gourds",311.222,https://en.wikipedia.org/wiki/Saraswati_veena
-Indonesia,angklung,"Two bamboo tubes, closed at one end and with tongues, attached to a square frame, played by shaking from side to side, causing the tongues to vibrate",112.122,https://en.wikipedia.org/wiki/Angklung
-Iran,tar,"The musical instrument, which has 6 wires and is the main instrument in traditional Iranian music, is produced by Mazzrab.",314.122,https://en.wikipedia.org/wiki/Tar_(string_instrument)
-Ireland,Irish Harp (Cruit or Cláirseach),Polychord wire-strung harp with a fore-pillar,322.221,https://en.wikipedia.org/wiki/Irish_Harp
+vina","Semitonically fretted lute with a long, cylindrical shape, resting on two gourds",311,https://en.wikipedia.org/wiki/Saraswati_veena,Chordophone,Simple chordophones or zither,Bar zither
+Indonesia,angklung,"Two bamboo tubes, closed at one end and with tongues, attached to a square frame, played by shaking from side to side, causing the tongues to vibrate",112,https://en.wikipedia.org/wiki/Angklung,Idiophone,Struck idiophone,Indirectly struck idiophone
+Iran,tar,"The musical instrument, which has 6 wires and is the main instrument in traditional Iranian music, is produced by Mazzrab.",314,https://en.wikipedia.org/wiki/Tar_(string_instrument),Chordophone,Simple chordophones or zither,Board zither
+Ireland,Irish Harp (Cruit or Cláirseach),Polychord wire-strung harp with a fore-pillar,322,https://en.wikipedia.org/wiki/Irish_Harp,Chordophone,Composite chordophone,Harp
 Israel,"kinnor
-David's harp","Biblically described historic instrument, probably a cithara; in modern Hebrew, refers to the violin",321.22,https://en.wikipedia.org/wiki/Kinnor
+David's harp","Biblically described historic instrument, probably a cithara; in modern Hebrew, refers to the violin",321,https://en.wikipedia.org/wiki/Kinnor,Chordophone,Composite chordophone,Lute
 Italy,mandolin,"Stringed instrument
-Mandolin performance (help·info)",321.321,https://en.wikipedia.org/wiki/Mandolin
-Japan,koto,Long and hollow thirteen-stringed instrument,312.22,https://en.wikipedia.org/wiki/Koto_(musical_instrument)
-Kazakhstan,dombra,"Fretted, long-necked lute with a round body, played by plucking with a plectrum",321.321,https://en.wikipedia.org/wiki/Dombra
-Kenya,nyatiti,"3-foot-long (0.91 m) harp, plucked with both hands, made of wood and goat or antelope skin",321.21,https://en.wikipedia.org/wiki/Nyatiti
+Mandolin performance (help·info)",321,https://en.wikipedia.org/wiki/Mandolin,Chordophone,Composite chordophone,Lute
+Jamaica,abeng,"Aerophone made from the end of a cow horn with the tip broken off on the side, which is blown into",423,https://en.wikipedia.org/wiki/Abeng,Aerophone,Non-free aerophones (wind instruments proper) ,Trumpet
+Japan,koto,Long and hollow thirteen-stringed instrument,312,https://en.wikipedia.org/wiki/Koto_(musical_instrument),Chordophone,Simple chordophones or zither,Tube zither
+Kazakhstan,dombra,"Fretted, long-necked lute with a round body, played by plucking with a plectrum",321,https://en.wikipedia.org/wiki/Dombra,Chordophone,Composite chordophone,Lute
+Kenya,nyatiti,"3-foot-long (0.91 m) harp, plucked with both hands, made of wood and goat or antelope skin",321,https://en.wikipedia.org/wiki/Nyatiti,Chordophone,Composite chordophone,Lute
 Korea,"gayageum
-kayagum, kayago","zither-like string instrument, with 12 strings.",312.22,https://en.wikipedia.org/wiki/Gayageum
-Kyrgyzstan,komuz,"Three-stringed fretless lute, made from wood with gut strings",321.321,https://en.wikipedia.org/wiki/Komuz
-Thailand,pin pia,Chest-resonated stick zither with two to five strings,311.221,https://en.wikipedia.org/wiki/Pin_pia
+kayagum, kayago","zither-like string instrument, with 12 strings.",312,https://en.wikipedia.org/wiki/Gayageum,Chordophone,Simple chordophones or zither,Tube zither
+Kyrgyzstan,komuz,"Three-stringed fretless lute, made from wood with gut strings",321,https://en.wikipedia.org/wiki/Komuz,Chordophone,Composite chordophone,Lute
 Laos,"khene
-khaen","Mouth organ with bamboo tubes, attached in pairs to the mouthpiece, and with fixed free reeds",412.132,https://en.wikipedia.org/wiki/Khene
+khaen","Mouth organ with bamboo tubes, attached in pairs to the mouthpiece, and with fixed free reeds",412,https://en.wikipedia.org/wiki/Khene,Aerophone,Free aerophone,Interruptive free aerophone
 Latvia,"kokles
-kūkles","Diatonic, lute-like string instrument",314.122,https://en.wikipedia.org/wiki/Kokles
+kūkles","Diatonic, lute-like string instrument",314,https://en.wikipedia.org/wiki/Kokles,Chordophone,Simple chordophones or zither,Board zither
 Lebanon,"darbuka
-debakeh",Goblet-shaped hand drum,211.261.21,https://en.wikipedia.org/wiki/Darbuka
-Lithuania,birbyne,"Aerophone, can be single- or double-reed, with or without a mouthpiece",422,https://en.wikipedia.org/wiki/Birbyne
-Madagascar,valiha,Tubular zither,312.11,https://en.wikipedia.org/wiki/Valiha
-Jamaica,abeng,"Aerophone made from the end of a cow horn with the tip broken off on the side, which is blown into",423.122.2,https://en.wikipedia.org/wiki/Abeng
-Mexico,marimba,"Xylophone-like instrument with wooden square tubes resonators, struck with mallets, with a two level keyboard so it can play the full chromatic scale",111.222,https://en.wikipedia.org/wiki/Marimba
+debakeh",Goblet-shaped hand drum,211,https://en.wikipedia.org/wiki/Darbuka,Membranophone,Struck membranophone,Directly struck membranophone
+Lithuania,birbyne,"Aerophone, can be single- or double-reed, with or without a mouthpiece",422,https://en.wikipedia.org/wiki/Birbyne,Aerophone,Non-free aerophones (wind instruments proper) ,Reed aerophone
+Madagascar,valiha,Tubular zither,312,https://en.wikipedia.org/wiki/Valiha,Chordophone,Simple chordophones or zither,Tube zither
+Mexico,marimba,"Xylophone-like instrument with wooden square tubes resonators, struck with mallets, with a two level keyboard so it can play the full chromatic scale",111,https://en.wikipedia.org/wiki/Marimba,Idiophone,Struck idiophone,Directly struck idiophone
 Mongolia,"morin khuur
-horse-head fiddle, igil","Two-stringed instrument, held between the legs, with a trapezoidal body and a horse's head typically carved on the upper edge of the pegbox",321.322,https://en.wikipedia.org/wiki/Morin_khuur
-Montenegro,gusle,"Stringed instrument, round, typically with one string bound at the top of the neck with a tuning peg",321.321,https://en.wikipedia.org/wiki/Gusle
+horse-head fiddle, igil","Two-stringed instrument, held between the legs, with a trapezoidal body and a horse's head typically carved on the upper edge of the pegbox",321,https://en.wikipedia.org/wiki/Morin_khuur,Chordophone,Composite chordophone,Lute
+Montenegro,gusle,"Stringed instrument, round, typically with one string bound at the top of the neck with a tuning peg",321,https://en.wikipedia.org/wiki/Gusle,Chordophone,Composite chordophone,Lute
 Myanmar,"saung-gauk
-saung, Burmese harp","Arched harp with sixteen strings, attached to the harp with red cotton tassels",322.11,https://en.wikipedia.org/wiki/Saung-gauk
-Nepal,madal,"Double-headed cylindrical drum, slightly bulging at the waist, held horizontally and played double-handed",211.212.1,https://en.wikipedia.org/wiki/Madal
-Netherlands,fiddle,"Four-stringed instrument, bowed",321.322,https://en.wikipedia.org/wiki/Fiddle
-Nicaragua,marimba,Xylophone-like instrument with gourd resonators,111.222,https://en.wikipedia.org/wiki/Marimba
-Norway,langeleik,"Rectangular zither with five or six strings, one melody string and several drone strings",314.122,https://en.wikipedia.org/wiki/Langeleik
+saung, Burmese harp","Arched harp with sixteen strings, attached to the harp with red cotton tassels",322,https://en.wikipedia.org/wiki/Saung-gauk,Chordophone,Composite chordophone,Harp
+Nepal,madal,"Double-headed cylindrical drum, slightly bulging at the waist, held horizontally and played double-handed",211,https://en.wikipedia.org/wiki/Madal,Membranophone,Struck membranophone,Directly struck membranophone
+Netherlands,fiddle,"Four-stringed instrument, bowed",321,https://en.wikipedia.org/wiki/Fiddle,Chordophone,Composite chordophone,Lute
+Nicaragua,marimba,Xylophone-like instrument with gourd resonators,111,https://en.wikipedia.org/wiki/Marimba,Idiophone,Struck idiophone,Directly struck idiophone
+Norway,langeleik,"Rectangular zither with five or six strings, one melody string and several drone strings",314,https://en.wikipedia.org/wiki/Langeleik,Chordophone,Simple chordophones or zither,Board zither
 Pakistan,"Daf
-dafli, dap, def, tef, defi, gaval, duf, duff, dof",It is a Pakistani version of frame drum musical instrument,211.311,https://en.wikipedia.org/wiki/Daf
-Paraguay,"harp, Paraguayan","Diatonic harp with 32, 36, 38 or 40 strings, made from tropical wood and with songs in the Guarani language, with an exaggerated neck-arch, played with the fingernail",322.211,https://en.wikipedia.org/wiki/Paraguayan_harp
-Peru,cajón,"Wooden box with a hole in one side, derived from containers used to transport agricultural products by portworkers",111.221,https://en.wikipedia.org/wiki/Caj%C3%B3n
-Philippines,Kudyapi,rondalla plucked chordophone with 14 strings tuned  F# B E A D G.,321.321,https://en.wikipedia.org/wiki/Kudyapi
-Polynesia,nose flute,"Flute, made from a single piece of bamboo, with three holes to blow into from the nostrils, with fingerholes",421.111.22,https://en.wikipedia.org/wiki/Nose_flute
-Portugal,Portuguese guitar,Fretted stringed instrument with a hollow body,321.322,https://en.wikipedia.org/wiki/Portuguese_guitar
-Puerto Rico,cuatro,"Fretted stringed instrument with a hollow body, derived from the Spanish tiple and other stringed instruments, made from carved wood with strings (ten, in five sets of two) of leather strips or dried animal gut",321.322,https://en.wikipedia.org/wiki/Cuatro_(instrument)
+dafli, dap, def, tef, defi, gaval, duf, duff, dof",It is a Pakistani version of frame drum musical instrument,211,https://en.wikipedia.org/wiki/Daf,Membranophone,Struck membranophone,Directly struck membranophone
+Paraguay,"harp, Paraguayan","Diatonic harp with 32, 36, 38 or 40 strings, made from tropical wood and with songs in the Guarani language, with an exaggerated neck-arch, played with the fingernail",322,https://en.wikipedia.org/wiki/Paraguayan_harp,Chordophone,Composite chordophone,Harp
+Peru,cajón,"Wooden box with a hole in one side, derived from containers used to transport agricultural products by portworkers",111,https://en.wikipedia.org/wiki/Caj%C3%B3n,Idiophone,Struck idiophone,Directly struck idiophone
+Philippines,Kudyapi,rondalla plucked chordophone with 14 strings tuned  F# B E A D G.,321,https://en.wikipedia.org/wiki/Kudyapi,Chordophone,Composite chordophone,Lute
+Polynesia,nose flute,"Flute, made from a single piece of bamboo, with three holes to blow into from the nostrils, with fingerholes",421,https://en.wikipedia.org/wiki/Nose_flute,Aerophone,Non-free aerophones (wind instruments proper) ,Edge-blown aerophones or flute
+Portugal,Portuguese guitar,Fretted stringed instrument with a hollow body,321,https://en.wikipedia.org/wiki/Portuguese_guitar,Chordophone,Composite chordophone,Lute
+Puerto Rico,cuatro,"Fretted stringed instrument with a hollow body, derived from the Spanish tiple and other stringed instruments, made from carved wood with strings (ten, in five sets of two) of leather strips or dried animal gut",321,https://en.wikipedia.org/wiki/Cuatro_(instrument),Chordophone,Composite chordophone,Lute
 Russia,Garmon,"Garmon, bellow-driven free reed with keys or buttons to modify the air flow
-chords on an accordion (help·info)",412.132,https://en.wikipedia.org/wiki/Garmon
-Ryukyus of Japan,sanshin,"Three stringed banjo-like instrument, covered with snakeskin",321.312,https://en.wikipedia.org/wiki/Sanshin
-Scotland,"bagpipe, highland","Bagpipe with a chanter, blowpipe, two tenor drones and a bass drone",422.112.2,https://en.wikipedia.org/wiki/Great_Highland_bagpipe
+chords on an accordion (help·info)",412,https://en.wikipedia.org/wiki/Garmon,Aerophone,Free aerophone,Interruptive free aerophone
+Scotland,"bagpipe, highland","Bagpipe with a chanter, blowpipe, two tenor drones and a bass drone",422,https://en.wikipedia.org/wiki/Great_Highland_bagpipe,Aerophone,Non-free aerophones (wind instruments proper) ,Reed aerophone
 Serbia,Accordion,"Accordion, bellow-driven free reed with keys or buttons to modify the air flow
-chords on an accordion (help·info)",412.132,https://en.wikipedia.org/wiki/Accordion
-Slovakia,fujara,Endblown long bass diatonic fipple flute,421.211.12,https://en.wikipedia.org/wiki/Fujara
+chords on an accordion (help·info)",412,https://en.wikipedia.org/wiki/Accordion,Aerophone,Free aerophone,Interruptive free aerophone
+Slovakia,fujara,Endblown long bass diatonic fipple flute,421,https://en.wikipedia.org/wiki/Fujara,Aerophone,Non-free aerophones (wind instruments proper) ,Edge-blown aerophones or flute
 Slovenia,accordion,"Accordion, bellow-driven free reed with keys or buttons to modify the air flow
-chords on an accordion (help·info)",412.132,https://en.wikipedia.org/wiki/Accordion
+chords on an accordion (help·info)",412,https://en.wikipedia.org/wiki/Accordion,Aerophone,Free aerophone,Interruptive free aerophone
 South Africa,"lesiba
-rattle stick","The lesiba, and gora or goura, are members of a class of ""unbraced mouth-resonated bow[s]"" with a flattened quill attached to a long string, stretched over a hard stick, acting as the main source of vibration",423.121.12,https://en.wikipedia.org/wiki/Lesiba
-Spain,guitar,"Fretted stringed instrument, long-necked with a flat soundboard and back, and incurved sides",321.322,https://en.wikipedia.org/wiki/Guitar
-Sweden,drejelire,Hurdy-gurdy that uses a rosined wheel to create sound,321.322,https://en.wikipedia.org/wiki/Drejelire
-Swedish Estonia,talharpa,Bowed lyre with no fingerboard,321.22,https://en.wikipedia.org/wiki/Talharpa
-Switzerland,alphorn,"Long wooden conical trumpet, bent at the end, with turned boxwood mouthpieces, traditionally used by herdsmen",423.121.12,https://en.wikipedia.org/wiki/Alphorn
-Trinidad and Tobago,steelpan,"Barrel-shaped percussion instruments, tuned chromatically, originally made from discarded 55 gallon drums",111.241.2,https://en.wikipedia.org/wiki/Steelpan
+rattle stick","The lesiba, and gora or goura, are members of a class of ""unbraced mouth-resonated bow[s]"" with a flattened quill attached to a long string, stretched over a hard stick, acting as the main source of vibration",423,https://en.wikipedia.org/wiki/Lesiba,Aerophone,Non-free aerophones (wind instruments proper) ,Trumpet
+Spain,guitar,"Fretted stringed instrument, long-necked with a flat soundboard and back, and incurved sides",321,https://en.wikipedia.org/wiki/Guitar,Chordophone,Composite chordophone,Lute
+Sweden,drejelire,Hurdy-gurdy that uses a rosined wheel to create sound,321,https://en.wikipedia.org/wiki/Drejelire,Chordophone,Composite chordophone,Lute
+Switzerland,alphorn,"Long wooden conical trumpet, bent at the end, with turned boxwood mouthpieces, traditionally used by herdsmen",423,https://en.wikipedia.org/wiki/Alphorn,Aerophone,Non-free aerophones (wind instruments proper) ,Trumpet
+Thailand,pin pia,Chest-resonated stick zither with two to five strings,311,https://en.wikipedia.org/wiki/Pin_pia,Chordophone,Simple chordophones or zither,Bar zither
+Trinidad and Tobago,steelpan,"Barrel-shaped percussion instruments, tuned chromatically, originally made from discarded 55 gallon drums",111,https://en.wikipedia.org/wiki/Steelpan,Idiophone,Struck idiophone,Directly struck idiophone
 Turkey,"saz
-bağlama, kopuz","Fretted lute with a long neck, pear-shaped body, and three courses of seven steel strings",321.321,https://en.wikipedia.org/wiki/Baglama
-Turkmenistan,dutar,"Plucked string instrument with two strings and a long neck, strummed or plucked",321.322,https://en.wikipedia.org/wiki/Dutar
-Ukraine,bandura,"Diatonic, unfretted lute-like string instrument, traditionally carved from a single block of wood",321.321,https://en.wikipedia.org/wiki/Bandura
-United States,banjo,"Membrane-topped four or five string fretted instrument, plucked or strummed with fingers or a plectrum.  Probably African American in origin.",321.312,https://en.wikipedia.org/wiki/Banjo
-Uzbekistan,doira,"Round, flat drum with shakers made of metal inside and a horse-skin head",211.311,https://en.wikipedia.org/wiki/Doira
-Venezuela,cuatro,"Guitar-like lute with four strings, usually strummed",321.322,https://en.wikipedia.org/wiki/Cuatro_(instrument)
-Vietnam,đàn bầu,,321.22,https://en.wikipedia.org/wiki/%C4%90%C3%A0n_b%E1%BA%A7u
-Wales,crwth,"Six-stringed instrument with a flat fingerboard, fretless",321.22,https://en.wikipedia.org/wiki/Crwth
+bağlama, kopuz","Fretted lute with a long neck, pear-shaped body, and three courses of seven steel strings",321,https://en.wikipedia.org/wiki/Baglama,Chordophone,Composite chordophone,Lute
+Turkmenistan,dutar,"Plucked string instrument with two strings and a long neck, strummed or plucked",321,https://en.wikipedia.org/wiki/Dutar,Chordophone,Composite chordophone,Lute
+Ukraine,bandura,"Diatonic, unfretted lute-like string instrument, traditionally carved from a single block of wood",321,https://en.wikipedia.org/wiki/Bandura,Chordophone,Composite chordophone,Lute
+United States,banjo,"Membrane-topped four or five string fretted instrument, plucked or strummed with fingers or a plectrum.  Probably African American in origin.",321,https://en.wikipedia.org/wiki/Banjo,Chordophone,Composite chordophone,Lute
+Uzbekistan,doira,"Round, flat drum with shakers made of metal inside and a horse-skin head",211,https://en.wikipedia.org/wiki/Doira,Membranophone,Struck membranophone,Directly struck membranophone
+Venezuela,cuatro,"Guitar-like lute with four strings, usually strummed",321,https://en.wikipedia.org/wiki/Cuatro_(instrument),Chordophone,Composite chordophone,Lute
+Vietnam,đàn bầu,,321,https://en.wikipedia.org/wiki/%C4%90%C3%A0n_b%E1%BA%A7u,Chordophone,Composite chordophone,Lute
+Wales,crwth,"Six-stringed instrument with a flat fingerboard, fretless",321,https://en.wikipedia.org/wiki/Crwth,Chordophone,Composite chordophone,Lute
 Yugoslavia,gusle,"Stringed instrument, round, typically with one string bound at the top of the neck with a tuning peg
-Serbian gusle (help·info)",321.321,https://en.wikipedia.org/wiki/Gusle
+Serbian gusle (help·info)",321,https://en.wikipedia.org/wiki/Gusle,Chordophone,Composite chordophone,Lute
 Zimbabwe,"mbira
-thumb piano","Plucked lamellophone, consisting of staggered keys attached to a board, with a halved calabash gourd as resonator",122.12,https://en.wikipedia.org/wiki/Mbira
+thumb piano","Plucked lamellophone, consisting of staggered keys attached to a board, with a halved calabash gourd as resonator",122,https://en.wikipedia.org/wiki/Mbira,Idiophone,Plucked idiophone,In the form of a comb
