@@ -1,4 +1,4 @@
-Nation,Instrument,Description,H-S number,Link ,Broad Type,Minor Type,Specfic Type
+nation,instrument,description,hsnumber,link ,broadtype,minottype,specfictype
 Afghanistan,Rubab,"Short-necked three-stringed lute with sympathetic and drone strings, fretted and plucked with a plectrum, with a double-chambered body, the lower part of which is covered in skin, and with three main strings",321,https://en.wikipedia.org/wiki/Rubab_(instrument),Chordophone,Composite chordophone,Lute
 Albania,Lahuta,,321,https://en.wikipedia.org/wiki/Gusle,Chordophone,Composite chordophone,Lute
 Argentina,Bandoneón,"Button accordion with a box shape, played with both hands using buttons that produce two sets of notes per hand",412,https://en.wikipedia.org/wiki/Bandone%C3%B3n,Aerophone,Free aerophone,Interruptive free aerophone

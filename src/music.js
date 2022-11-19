@@ -74,13 +74,13 @@ d3.select(self.frameElement).style("height", height + "px");
 d3.json("countries.geo.json").then(function(json) {
         console.log(json);
     
-        d3.csv("Map_of_the_Gods.csv").then(function(data){
+        d3.csv("nation-instruments.csv").then(function(data){
             console.log(data);
 
         // Go through each element of the csv
 		for (var i = 0; i < data.length; i++) {
 			// Get data for csv element
-        	var csvName = data[i].name;
+        	var csvName = data[i].instrument;
         	var csvCulture = data[i].culture;
             var csvLocation = data[i].location;
             var csvGender = data[i].gender;
