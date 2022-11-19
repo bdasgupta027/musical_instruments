@@ -1,0 +1,81 @@
+body {
+   background-image: url("http://backgroundimages.eu/albums/background/papyrus-old-stationery.jpg");
+   background-size: cover;    
+}
+
+/* Define colors for circles and rectangles */
+.circle {
+/*  fill: #303030;*/
+  fill: #E8E4E1;
+  opacity: 1;
+  stroke: black;
+}
+
+.rect {
+  fill: #484848;
+  opacity: 1;
+  stroke: black;
+}
+
+.circle:hover {
+  fill: white;
+  stroke: black;
+  opacity: 1;
+}
+.rect:hover {
+  fill: black;
+  opacity: 1;
+}
+
+.stroke {
+  fill: none;
+  stroke: #000;
+  stroke-width: 3px;
+}
+
+.fill {
+  fill: #fff;
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+
+.land {
+  fill: #222;
+}
+
+/* Define color for country boundary */
+#boundary {
+  fill: none;
+  stroke: grey;
+  stroke-width: 0.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+#boundary:hover {
+  stroke: black;
+  stroke-width: 1px;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    line-height: 1;
+    padding: 12px;
+    
+    background: black;
+    opacity: 0.5px;
+    color: #fff;
+    
+    border-right: 10px;
+    top:100px;
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+    pointer-events: none;
+}
+
