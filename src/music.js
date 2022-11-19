@@ -81,12 +81,12 @@ d3.json("countries.geo.json").then(function(json) {
 		for (var i = 0; i < data.length; i++) {
 			// Get data for csv element
         	var csvName = data[i].instrument;
-        	var csvCulture = data[i].culture;
-            var csvLocation = data[i].location;
+        	var csvCulture = data[i].broadtype;
+            var csvLocation = data[i].nation;
             var csvGender = data[i].gender;
             var csvSpecies  = data[i].species;
             var csvType = data[i].type;
-            var csvWikiLink = data[i].linkwik;
+            var csvWikiLink = data[i].link;
             var csvGCLink = data[i].linkgc;
             var csvPicture = data[i].picture;
         	// Go through each element of the json looking for a country
@@ -127,6 +127,7 @@ d3.json("countries.geo.json").then(function(json) {
          .attr("id", "boundary")
         
          // set the colors for the regions
+         // regions can be based on their instument type color
          .style("fill", function(d) {
             var country = d.properties.Location;
             if(country === "Mexico") {
