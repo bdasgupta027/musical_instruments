@@ -78,7 +78,7 @@ d3.json("countries.geo.json").then(function(json) {
         d3.csv("nation-instruments.csv").then(function(data){
 //            console.log(data);
             //nation,instrument,description,hsnumber,link ,broadtype,minottype,specfictype
-        // Go through each element of the csv
+        //  through each element of the csv
 		for (var i = 0; i < data.length; i++) {
 			// Get data for csv element
             var name = data[i].instrument;
@@ -147,37 +147,24 @@ d3.json("countries.geo.json").then(function(json) {
          .attr("id", "boundary")
         
          // set the colors for the regions
-         // regions can be based on their instument type color
+         // regions can be based on their instument type color:
+         //color scheme for broad type:
+         //   1) Chordophone: #BE79DF
+         //   2) Aerophone: #00FFFF
+         //   3) Idiophone: #c90e0e
+         //   4) Membranophone: #194719
          .style("fill", function(d) {
-            var country = d.properties.nation;
             var classification = d.properties.broadType;
             if(classification === "Chordophone") {
                    return "#BE79DF";}//purple  
             if(classification === "Aerophone") {
                    return "#00FFFF";}//aqua
-            if(country === "Japan") {
+            if(classification === "Idiophone") {
                    return "#c90e0e";}//red
-            if(country === "United Kingdom") {
+            if(classification === "Membranophone") {
                    return "#194719";}
-            if(country === "Ireland") {
-                   return "#194719";}//green        
-            if(country === "Nigeria") {
-                   return "#ff9900";}//light brown
-            if(country === "Peru") {
-                   return "#85ad33";}//green yellow
-            if(country === "Egypt") {
-                   return "#ff5050";}//salmony
-            if(country === "Denmark") {
-                   return "#0A97B0";}//bluegrey
-            if(country === "Finland") {
-                   return "#0A97B0";}
-            if(country === "Norway") {
-                   return "#0A97B0";}
-            if(country === "Sweden") {
-                   return "#0A97B0";}
             else {
                 // light grey 
-//                return "#D3D3D3";}
                 return "rgb(213,222,217)";}
         })//This is for the style attribute for the path
         // Add a tooltip to show the name of the country.
@@ -187,7 +174,7 @@ d3.json("countries.geo.json").then(function(json) {
                    .style("background", "black")
                    .style("opacity", ".9");
             // Format the tooltip
-            tooltip.html("Modern Name of Country: " + d.properties.name)
+            tooltip.html("Name of Instrument: " + d.properties.name)
                    .style("left", (d3.event.pageX ) + "px")
                    .style("top", (d3.event.pageY) + "px")})
             // Deactivate the tooltip
@@ -341,6 +328,56 @@ function clicked(d) {
       .duration(750)
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       .style("stroke-width", 1.5 / k + "px");
+}
+
+// set the colors for the regions
+    // regions can be based on their instument type color:
+    //color scheme for broad type:
+    //   1) Chordophone: #BE79DF
+    //   2) Aerophone: #00FFFF
+    //   3) Idiophone: #c90e0e
+    //   4) Membranophone: #194719
+function changeMinotColorScheme(){
+    g.selectAll("path")
+    .style("fill", function(d) {
+            var classification = d.properties.minotType;
+            if(classification === "Composite chordophone") {
+                   return "#32a852";} 
+            if(classification === "Free aerophone") {
+                   return "#7cb7eb";}
+            if(classification === "Non-free aerophones (wind instruments proper)") {
+                   return "#daa5f2";}
+            if(classification === "Struck idiophone") {
+                   return "#e36db4";}
+            if(classification === "Simple chordophones or zither") {
+                   return "#871b1f";} 
+            if(classification === "Struck membranophone") {
+                   return "#edd539";}
+            if(classification === "Plucked idiophone") {
+                   return "#2f9685";}
+            else {
+                // light grey 
+                return "rgb(213,222,217)";}
+    });
+}
+
+
+function changeBroadColorScheme(){
+    g.selectAll("path")
+    .style("fill", function(d) {
+            var classification = d.properties.broadType;
+            if(classification === "Chordophone") {
+                   return "#BE79DF";}//purple  
+            if(classification === "Aerophone") {
+                   return "#00FFFF";}//aqua
+            if(classification === "Idiophone") {
+                   return "#c90e0e";}//red
+            if(classification === "Membranophone") {
+                   return "#194719";}
+            else {
+                // light grey 
+                return "rgb(213,222,217)";}
+    });
 }
 
 // Legend for Cultures
