@@ -71,42 +71,62 @@ d3.select(self.frameElement).style("height", height + "px");
 //Parse the data
 //Data will be graabed from countries.geo.json and Map_of_Gods.csv
 //Below code was supplemented from LA v SF group	
+//var types = [];
 d3.json("countries.geo.json").then(function(json) {
-        console.log(json);
+        
     
         d3.csv("nation-instruments.csv").then(function(data){
-            console.log(data);
-
+//            console.log(data);
+            //nation,instrument,description,hsnumber,link ,broadtype,minottype,specfictype
         // Go through each element of the csv
 		for (var i = 0; i < data.length; i++) {
 			// Get data for csv element
-        	var csvName = data[i].instrument;
-        	var csvCulture = data[i].broadtype;
-            var csvLocation = data[i].nation;
-            var csvGender = data[i].gender;
-            var csvSpecies  = data[i].species;
-            var csvType = data[i].type;
-            var csvWikiLink = data[i].link;
-            var csvGCLink = data[i].linkgc;
-            var csvPicture = data[i].picture;
+            var name = data[i].instrument;
+            var nation = data[i].nation;
+            var description = data[i].description;
+            var hsnumber = data[i].hsnumber;
+            var link = data[i].link;
+            var broadType = data[i].broadtype;
+//            types.append(broadType);
+            var minotType = data[i].minottype;
+            console.log(minotType);
+            var specificType = data[i].specifictype; 
+//        	var csvName = data[i].instrument; //taken
+//        	var csvCulture = data[i].broadtype;
+//            var csvLocation = data[i].nation; //taken
+//            var csvGender = data[i].gender;
+//            var csvSpecies  = data[i].species;
+//            var csvType = data[i].type;
+//            var csvWikiLink = data[i].link;
+//            var csvGCLink = data[i].linkgc;
+//            var csvPicture = data[i].picture;
         	// Go through each element of the json looking for a country
         	//		to match the country of the csv.
 			for (var j = 0; j < json.features.length; j++) {
 				var jsonCountry = json.features[j].properties.name;
                 //console.log(jsonCountry);
                 //console.log(j);
-				if (csvLocation == jsonCountry) {
+				if (nation == jsonCountry) {
 					// Assign the color retrieved from the csv to the
 					// 		matching json element.
-					json.features[j].properties.Name = csvName;
-                    json.features[j].properties.Culture = csvCulture;
-                    json.features[j].properties.Location = csvLocation;
-                    json.features[j].properties.Gender = csvGender;
-                    json.features[j].properties.Species = csvSpecies;
-                    json.features[j].properties.Type = csvType;
-                    json.features[j].properties.WikiLink = csvWikiLink;
-                    json.features[j].properties.GCLink = csvGCLink;
-                    json.features[j].properties.Picture = csvPicture;
+                    
+                    json.features[j].properties.name = name;
+                    json.features[j].properties.nation = nation;
+                    json.features[j].properties.description = description;
+                    json.features[j].properties.hsnumber= hsnumber;
+                    json.features[j].properties.link = link;
+                    json.features[j].properties.broadType = broadType;
+                    json.features[j].properties.minotType = minotType;
+                    json.features[j].properties.specificType = specificType;
+//					json.features[j].properties.Name = csvName;
+//                    json.features[j].properties.Culture = csvCulture;
+//                    json.features[j].properties.Location = csvLocation;
+//                    json.features[j].properties.Gender = csvGender;
+//                    json.features[j].properties.Species = csvSpecies;
+//                    json.features[j].properties.Type = csvType;
+//                    json.features[j].properties.WikiLink = csvWikiLink;
+//                    json.features[j].properties.GCLink = csvGCLink;
+//                    json.features[j].properties.Picture = csvPicture;
 					break;
                 }//if(csvLocation == jsonCountry
             }//for loop
@@ -129,11 +149,12 @@ d3.json("countries.geo.json").then(function(json) {
          // set the colors for the regions
          // regions can be based on their instument type color
          .style("fill", function(d) {
-            var country = d.properties.Location;
-            if(country === "Mexico") {
+            var country = d.properties.nation;
+            var classification = d.properties.broadType;
+            if(classification === "Chordophone") {
                    return "#BE79DF";}//purple  
-            if(country === "Greece") {
-                   return "#035AA6";}//aqua
+            if(classification === "Aerophone") {
+                   return "#00FFFF";}//aqua
             if(country === "Japan") {
                    return "#c90e0e";}//red
             if(country === "United Kingdom") {
@@ -180,115 +201,115 @@ d3.json("countries.geo.json").then(function(json) {
      // Separate data into shapes based on gender
      // Square for Female
      // Circle for Male
-     g.selectAll(".shapes")
-			.data(data)
-			.enter()
-            
-            // Add Wikipedia Link to circle or square object
-            // When the object is clicked, the user will be taken to the corresponding Wikipedia page.
-            .append("a")
-            .attr("href", function(d) {return d.linkwik;})
-            
-            // Assign shape to corresponding gender.
-            // document.createElementNS() allows the user to create an element. The link is an XML namespace and the string specifies the type of element to be created.
-			.append(function(d){
-                 console.log(d);
-                 if (d.gender === "Female") {
-                 return document.createElementNS('http://www.w3.org/2000/svg', "rect");
-                 } else {
-                   return document.createElementNS('http://www.w3.org/2000/svg', "circle");
-                 }
-      })
-      .attr("class", "shapes")
-            
-     // Create all of the circles 
-        g.selectAll("circle")
-         .attr("class", "circle")
-         .attr("cx", function(d) {
-                return projection([d.lon,d.lat])[0];})
-          .attr("cy", function(d) {
-                return projection([d.lon, d.lat])[1];})
-          .attr("r", 2)
-         // Add tooltip so that it appears over mouseover on the circle
-         .on('mouseover', function(d) {
-            tooltip.transition()
-                   .duration(100)
-                   .style("fill", "black")
-                   .style("opacity", ".9");
-            // Format the tooltip
-            tooltip.html(
-             "<table>" 
-             + "<tr>" + "<td style= 'text-align:left;'> Name </td>" 
-                      + "<td style= 'text-align:center;'>  :  </td>" + 
-                      "<td style= 'text-align:right;'>" + d.name + "</td>" 
-             + "</tr>" 
-             + "<tr>" + "<td style= 'text-align:left;'>" + "Type" + "</td>" 
-                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-                      "<td style= 'text-align:right;'>" + d.type + "</td>" 
-             + "</tr>" 
-              + "<tr>" + "<td style= 'text-align:left;'>" + "Culture" + "</td>" 
-                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-                      "<td style= 'text-align:right;'>" + d.culture + "</td>" 
-             + "</tr>" 
-             + "<tr>" + "<td style= 'text-align:left;'>" + "Gender" + "</td>" 
-                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-                      "<td style= 'text-align:right;'>" + d.gender + "</td>" 
-             + "</tr>" 
-             + "</table>")
-                   .style("left", (d3.event.pageX ) + "px")
-                   .style("top", (d3.event.pageY) + "px")})
-            // Deactivate the tooltip
-           .on("mouseout", function(d) {
-             tooltip.transition()
-               .duration(500)
-               .style("opacity", 0);
-           });
-            
-        // Create all of the Squares
-        g.selectAll("rect")
-         .attr("class", "rect")
-         .attr("x", function(d) {
-                return projection([d.lon,d.lat])[0];})
-          .attr("y", function(d) {
-                return projection([d.lon, d.lat])[1];})
-          .attr("width", "4")
-          .attr("height", "4")
-            
-         // Add tooltip so that it appears over mouseover on the circle
-         .on('mouseover', function(d) {
-            tooltip.transition()
-                   .duration(100)
-                   .style("fill", "black")
-                   .style("opacity", ".9");
-            // Format the tooltip
-            tooltip.html(
-             "<table>" 
-             + "<tr>" + "<td style= 'text-align:left;'> Name </td>" 
-                      + "<td style= 'text-align:center;'>  :  </td>" + 
-                      "<td style= 'text-align:right;'>" + d.name + "</td>" 
-             + "</tr>" 
-             + "<tr>" + "<td style= 'text-align:left;'>" + "Type" + "</td>" 
-                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-                      "<td style= 'text-align:right;'>" + d.type + "</td>" 
-             + "</tr>" 
-              + "<tr>" + "<td style= 'text-align:left;'>" + "Culture" + "</td>" 
-                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-                      "<td style= 'text-align:right;'>" + d.culture + "</td>" 
-             + "</tr>" 
-             + "<tr>" + "<td style= 'text-align:left;'>" + "Gender" + "</td>" 
-                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-                      "<td style= 'text-align:right;'>" + d.gender + "</td>" 
-             + "</tr>" 
-             + "</table>")
-            
-                   .style("left", (d3.event.pageX ) + "px")
-                   .style("top", (d3.event.pageY) + "px")})
-            // Deactivate the tooltip
-           .on("mouseout", function(d) {
-             tooltip.transition()
-               .duration(500)
-               .style("opacity", 0);
-           });
+//     g.selectAll(".shapes")
+//			.data(data)
+//			.enter()
+//            
+//            // Add Wikipedia Link to circle or square object
+//            // When the object is clicked, the user will be taken to the corresponding Wikipedia page.
+//            .append("a")
+//            .attr("href", function(d) {return d.linkwik;})
+//            
+//            // Assign shape to corresponding gender.
+//            // document.createElementNS() allows the user to create an element. The link is an XML namespace and the string specifies the type of element to be created.
+//			.append(function(d){
+//                 console.log(d);
+//                 if (d.gender === "Female") {
+//                 return document.createElementNS('http://www.w3.org/2000/svg', "rect");
+//                 } else {
+//                   return document.createElementNS('http://www.w3.org/2000/svg', "circle");
+//                 }
+//      })
+//      .attr("class", "shapes")
+//            
+//     // Create all of the circles 
+//        g.selectAll("circle")
+//         .attr("class", "circle")
+//         .attr("cx", function(d) {
+//                return projection([d.lon,d.lat])[0];})
+//          .attr("cy", function(d) {
+//                return projection([d.lon, d.lat])[1];})
+//          .attr("r", 2)
+//         // Add tooltip so that it appears over mouseover on the circle
+//         .on('mouseover', function(d) {
+//            tooltip.transition()
+//                   .duration(100)
+//                   .style("fill", "black")
+//                   .style("opacity", ".9");
+//            // Format the tooltip
+//            tooltip.html(
+//             "<table>" 
+//             + "<tr>" + "<td style= 'text-align:left;'> Name </td>" 
+//                      + "<td style= 'text-align:center;'>  :  </td>" + 
+//                      "<td style= 'text-align:right;'>" + d.name + "</td>" 
+//             + "</tr>" 
+//             + "<tr>" + "<td style= 'text-align:left;'>" + "Type" + "</td>" 
+//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
+//                      "<td style= 'text-align:right;'>" + d.type + "</td>" 
+//             + "</tr>" 
+//              + "<tr>" + "<td style= 'text-align:left;'>" + "Culture" + "</td>" 
+//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
+//                      "<td style= 'text-align:right;'>" + d.culture + "</td>" 
+//             + "</tr>" 
+//             + "<tr>" + "<td style= 'text-align:left;'>" + "Gender" + "</td>" 
+//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
+//                      "<td style= 'text-align:right;'>" + d.gender + "</td>" 
+//             + "</tr>" 
+//             + "</table>")
+//                   .style("left", (d3.event.pageX ) + "px")
+//                   .style("top", (d3.event.pageY) + "px")})
+//            // Deactivate the tooltip
+//           .on("mouseout", function(d) {
+//             tooltip.transition()
+//               .duration(500)
+//               .style("opacity", 0);
+//           });
+//            
+//        // Create all of the Squares
+//        g.selectAll("rect")
+//         .attr("class", "rect")
+//         .attr("x", function(d) {
+//                return projection([d.lon,d.lat])[0];})
+//          .attr("y", function(d) {
+//                return projection([d.lon, d.lat])[1];})
+//          .attr("width", "4")
+//          .attr("height", "4")
+//            
+//         // Add tooltip so that it appears over mouseover on the circle
+//         .on('mouseover', function(d) {
+//            tooltip.transition()
+//                   .duration(100)
+//                   .style("fill", "black")
+//                   .style("opacity", ".9");
+//            // Format the tooltip
+//            tooltip.html(
+//             "<table>" 
+//             + "<tr>" + "<td style= 'text-align:left;'> Name </td>" 
+//                      + "<td style= 'text-align:center;'>  :  </td>" + 
+//                      "<td style= 'text-align:right;'>" + d.name + "</td>" 
+//             + "</tr>" 
+//             + "<tr>" + "<td style= 'text-align:left;'>" + "Type" + "</td>" 
+//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
+//                      "<td style= 'text-align:right;'>" + d.type + "</td>" 
+//             + "</tr>" 
+//              + "<tr>" + "<td style= 'text-align:left;'>" + "Culture" + "</td>" 
+//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
+//                      "<td style= 'text-align:right;'>" + d.culture + "</td>" 
+//             + "</tr>" 
+//             + "<tr>" + "<td style= 'text-align:left;'>" + "Gender" + "</td>" 
+//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
+//                      "<td style= 'text-align:right;'>" + d.gender + "</td>" 
+//             + "</tr>" 
+//             + "</table>")
+//            
+//                   .style("left", (d3.event.pageX ) + "px")
+//                   .style("top", (d3.event.pageY) + "px")})
+//            // Deactivate the tooltip
+//           .on("mouseout", function(d) {
+//             tooltip.transition()
+//               .duration(500)
+//               .style("opacity", 0);
+//           });
             
     });//These bracets are for d3.csv line above
 });//These brackets are for d3.json line
