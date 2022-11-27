@@ -25,53 +25,94 @@ Look of Map, Format of tooltips, Click to Zoom, Different Shapes, Hover over Bou
 
 var treeData =
   {
-    "name": "Instruments",
-    "children": [      
-        { "name": "Chordophones",
-              "children": [
-          { "name": "Musical bows" },
-          { "name": "Harps" ,
-            },
-          { "name": "Lyres" },
-          { "name": "Lutes" 
-           },
-          { "name": "Zithers" }
-        ] },
-        { "name": "Aerophones",
-              "children": [
-          { "name": "Brasswinds"},
-          { "name": "Woodwinds" },
-          { "name": "Free-reed"},
-          { "name": "Free"}
-        ] },
-      { 
-        "name": "Idiophones",
-        "children": [
-          { "name": "Concussion"},
-          { "name": "Friction"}
-            ,
-          { "name": "Percussion" }
-            ,
-          { "name": "Plucked" }
-            ,
-          { "name": "Scraped" }            ,
-          { "name": "Shaken" }            ,
-          { "name": "Stamping" }
-                       ,
-          { "name": "Stamped"}
-        ]
-      },
-      { "name": "Membranophones",
-              "children": [
-          { "name": "Kettle Drums"},
-          { "name": "Tubular Drums" },
-          { "name": "Friction Drums"  },
-          { "name": "Mirlitons"  }
-        ]},
-
-    ]
-  };
-
+  "name":"Instruments",
+  "children": [
+    {"name":"Idiophones",
+     "children": [
+       {"name":"Struck idiophones",
+       "children": [
+         {"name":"Directly struck idiophones"},
+         {"name":"Indirectly struck idiophones"}
+       ]},
+       {"name":"Plucked idiophones",
+       "children":[
+         {"name":"In the form of a frame"},
+         {"name":"In the form of a comb"},
+         {"name":"Mixed sets of lamellophones"}
+       ]},
+       {"name":"Friction idiophones",
+       "children": [
+         {"name":"Friction sticks"},
+         {"name":"Friction plaques"},
+         {"name":"Friction vessels"}
+       ]},
+       {"name":"Blown idiophones",
+       "children": [
+         {"name":"Blown sticks"},
+         {"name":"Blown plaques"}
+       ]},
+       {"name":"Unclassified idiophones"}
+     ]},
+    {"name":"Membranophones",
+    "children": [
+      {"name":"Struck membranophones",
+      "children": [
+        {"name":"Directly struck membranophones"},
+        {"name":"Shaken membranophones"}
+      ]},
+      {"name":"Plucked membranophones"},
+      {"name":"Friction membranophones",
+      "children": [
+        {"name":"Friction drums with stick"},
+        {"name":"Friction drum with cord"},
+        {"name":"Hand friction drums"}
+      ]},
+      {"name":"Singing membranes (kazoos)",
+      "children": [
+        {"name":"Free kazoos"},
+        {"name":"Tube or vessel-kazoos"}
+      ]},
+      {"name":"Unclassified membranophones"}
+    ]},
+    {"name":"Chordophones",
+    "children": [
+      {"name":"Simple chordophones or zithers",
+       "children": [
+         {"name":"Bar zithers"},
+         {"name":"Tube zithers"},
+         {"name":"Raft zithers"},
+         {"name":"Board zithers"},
+         {"name":"Trough zithers"},
+         {"name":"Bar zithers"}
+       ]},
+      {"name":"Composite chordophones",
+      "children":[
+        {"name":"Lutes"},
+        {"name":"Harps"},
+        {"name":"Harp Lutes"}
+      ]},
+      {"name":"Unclassified chordophones"}
+    ]},
+    {"name":"Aerophones",
+    "children": [
+      {"name":"Free aerophones",
+      "children": [
+        {"name":"Displacement free aerophones"},
+        {"name":"Interruptive free aerophones"},
+        {"name":"Plosive aerophones"}
+      ]},
+      {"name":"Non-free aerophones",
+      "children": [
+         {"name":"Edge-blown aerophones or flutes"},
+         {"name":"Reed aerophones"},
+         {"name":"Trumpets"},
+         {"name":"Mixed sets of wind instruments"} 
+      ]},
+      {"name":"Mixed sets of aerophones"}
+    ]},
+    {"name":"Electrophones"}
+  ]
+};
 // Set the dimensions and margins of the diagram
 var margin = {top: 20, right: 90, bottom: 30, left: 90},
     width = 560 - margin.left - margin.right,
@@ -142,7 +183,34 @@ function update(source) {
       .attr('class', 'node')
       .attr('r', 1e-6)
       .style("fill", function(d) {
-          return d._children ? "lightsteelblue" : "#fff";
+            var classification = d.data.name;
+            if(classification === "Composite chordophone") {
+                   return "#32a852";} 
+            else if(classification === "Free aerophone") {
+                   return "#7cb7eb";}
+            else if(classification === "Non-free aerophones (wind instruments proper)") {
+                   return "#daa5f2";}
+            else if(classification === "Struck idiophones") {
+                   return "#e36db4";}
+            else if(classification === "Simple chordophones or zither") {
+                   return "#871b1f";} 
+            else if(classification === "Struck membranophones") {
+                   return "#edd539";}
+            else if(classification === "Plucked idiophones") {
+                   return "#2f9685";}
+            else if(classification === "Chordophones") {
+                  return "#BE79DF";}//purple  
+            else if(classification === "Aerophones") {
+                   return "#00FFFF";}//aqua
+            else if(classification === "Idiophones") {
+                   return "#c90e0e";}//red
+            else if(classification === "Membranophones") {
+                   return "#194719";
+            }else{
+               return d._children ? "lightsteelblue" : "#fff"; 
+            }
+           
+            
       });
 
   // Add labels for the nodes
@@ -170,7 +238,32 @@ function update(source) {
   nodeUpdate.select('circle.node')
     .attr('r', 10)
     .style("fill", function(d) {
-        return d._children ? "lightsteelblue" : "#fff";
+        var classification = d.data.name;
+        if(classification === "Composite chordophone") {
+               return "#32a852";} 
+        else if(classification === "Free aerophone") {
+               return "#7cb7eb";}
+        else if(classification === "Non-free aerophones (wind instruments proper)") {
+               return "#daa5f2";}
+        else if(classification === "Struck idiophones") {
+               return "#e36db4";}
+        else if(classification === "Simple chordophones or zither") {
+               return "#871b1f";} 
+        else if(classification === "Struck membranophones") {
+               return "#edd539";}
+        else if(classification === "Plucked idiophones") {
+               return "#2f9685";}
+        else if(classification === "Chordophones") {
+              return "#BE79DF";}//purple  
+        else if(classification === "Aerophones") {
+               return "#00FFFF";}//aqua
+        else if(classification === "Idiophones") {
+               return "#c90e0e";}//red
+        else if(classification === "Membranophones") {
+               return "#194719";
+        }else{
+           return d._children ? "lightsteelblue" : "#fff"; 
+        }
     })
     .attr('cursor', 'pointer');
 
@@ -382,7 +475,6 @@ d3.json("countries.geo.json").then(function(json) {
         })//This is for the style attribute for the path
         // Add a tooltip to show the name of the country.
         .on('mouseover', function(d) {  
-            console.log(d.properties.specificType);
             if (typeof d.properties.description !== 'undefined'){
                 tooltip.transition()
                        .duration(100)
