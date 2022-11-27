@@ -355,8 +355,7 @@ d3.json("countries.geo.json").then(function(json) {
          .attr("d", path)
             
          // When a region is clicked on, call the clicked function to zoom in to the region. 
-         .on("click", clicked)
-            
+        .on("click", clicked)
          // set the boundary color in between countries
          .attr("id", "boundary")
         
@@ -383,15 +382,16 @@ d3.json("countries.geo.json").then(function(json) {
         })//This is for the style attribute for the path
         // Add a tooltip to show the name of the country.
         .on('mouseover', function(d) {  
-            console.log(d.properties.description);
+            console.log(d.properties.specificType);
             if (typeof d.properties.description !== 'undefined'){
                 tooltip.transition()
                        .duration(100)
                        .style("background", "black")
                        .style("opacity", ".8");
                 // Format the tooltip
-                tooltip.html("<div>Name of Instrument: " + d.properties.name + "</div><div>Country: " + 
-                d.properties.nation + "</div><div>Description: " + d.properties.description)
+                tooltip.html("<div><b>Name of Instrument</b>: " + d.properties.name + "</div><div><b>Country</b>: " + 
+                d.properties.nation + "</div><div><b>Description</b>: " + d.properties.description + "</div><div><b>Broad Type</b>: " + d.properties.broadType + 
+                "</div><div><b>Minot Type</b>: " + d.properties.minotType + "</div><div><b>Specific Type</b>: " + d.properties.specificType)
                        .style("left", (d3.event.pageX ) + "px")
                        .style("top", (d3.event.pageY) + "px")
             }else{
@@ -452,7 +452,6 @@ function clicked(d) {
 function changeMinotColorScheme(){
     //change color scheme
     g.selectAll("path")
-    .on("click", clicked)
     .style("fill", function(d) {
             var classification = d.properties.minotType;
             if(classification === "Composite chordophone") {
