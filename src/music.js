@@ -87,24 +87,12 @@ d3.json("countries.geo.json").then(function(json) {
             var hsnumber = data[i].hsnumber;
             var link = data[i].link;
             var broadType = data[i].broadtype;
-//            types.append(broadType);
             var minotType = data[i].minottype;
-            console.log(minotType);
             var specificType = data[i].specifictype; 
-//        	var csvName = data[i].instrument; //taken
-//        	var csvCulture = data[i].broadtype;
-//            var csvLocation = data[i].nation; //taken
-//            var csvGender = data[i].gender;
-//            var csvSpecies  = data[i].species;
-//            var csvType = data[i].type;
-//            var csvWikiLink = data[i].link;
-//            var csvGCLink = data[i].linkgc;
-//            var csvPicture = data[i].picture;
-        	// Go through each element of the json looking for a country
-        	//		to match the country of the csv.
 			for (var j = 0; j < json.features.length; j++) {
 				var jsonCountry = json.features[j].properties.name;
-                //console.log(jsonCountry);
+                
+                
                 //console.log(j);
 				if (nation == jsonCountry) {
 					// Assign the color retrieved from the csv to the
@@ -118,15 +106,6 @@ d3.json("countries.geo.json").then(function(json) {
                     json.features[j].properties.broadType = broadType;
                     json.features[j].properties.minotType = minotType;
                     json.features[j].properties.specificType = specificType;
-//					json.features[j].properties.Name = csvName;
-//                    json.features[j].properties.Culture = csvCulture;
-//                    json.features[j].properties.Location = csvLocation;
-//                    json.features[j].properties.Gender = csvGender;
-//                    json.features[j].properties.Species = csvSpecies;
-//                    json.features[j].properties.Type = csvType;
-//                    json.features[j].properties.WikiLink = csvWikiLink;
-//                    json.features[j].properties.GCLink = csvGCLink;
-//                    json.features[j].properties.Picture = csvPicture;
 					break;
                 }//if(csvLocation == jsonCountry
             }//for loop
@@ -168,135 +147,30 @@ d3.json("countries.geo.json").then(function(json) {
                 return "rgb(213,222,217)";}
         })//This is for the style attribute for the path
         // Add a tooltip to show the name of the country.
-        .on('mouseover', function(d) {
+        .on('mouseover', function(d) {  
+            console.log(d.properties.description);
+            if (typeof d.properties.description !== 'undefined'){
+                tooltip.transition()
+                       .duration(100)
+                       .style("background", "black")
+                       .style("opacity", ".8");
+                // Format the tooltip
+                tooltip.html("<div>Name of Instrument: " + d.properties.name + "</div><div>Country: " + 
+                d.properties.nation + "</div><div>Description: " + d.properties.description)
+                       .style("left", (d3.event.pageX ) + "px")
+                       .style("top", (d3.event.pageY) + "px")
+            }else{
+                tooltip.html("Country: " + d.properties.nation)
+                .style("left", (d3.event.pageX ) + "px")
+                .style("top", (d3.event.pageY) + "px")
+            }
+        })
+        // Deactivate the tooltip
+        .on("mouseout", function(d) {
             tooltip.transition()
-                   .duration(100)
-                   .style("background", "black")
-                   .style("opacity", ".9");
-            // Format the tooltip
-            tooltip.html("Name of Instrument: " + d.properties.name)
-                   .style("left", (d3.event.pageX ) + "px")
-                   .style("top", (d3.event.pageY) + "px")})
-            // Deactivate the tooltip
-           .on("mouseout", function(d) {
-             tooltip.transition()
-               .duration(500)
-               .style("opacity", 0);
-           });  
-            
-            
-     // Separate data into shapes based on gender
-     // Square for Female
-     // Circle for Male
-//     g.selectAll(".shapes")
-//			.data(data)
-//			.enter()
-//            
-//            // Add Wikipedia Link to circle or square object
-//            // When the object is clicked, the user will be taken to the corresponding Wikipedia page.
-//            .append("a")
-//            .attr("href", function(d) {return d.linkwik;})
-//            
-//            // Assign shape to corresponding gender.
-//            // document.createElementNS() allows the user to create an element. The link is an XML namespace and the string specifies the type of element to be created.
-//			.append(function(d){
-//                 console.log(d);
-//                 if (d.gender === "Female") {
-//                 return document.createElementNS('http://www.w3.org/2000/svg', "rect");
-//                 } else {
-//                   return document.createElementNS('http://www.w3.org/2000/svg', "circle");
-//                 }
-//      })
-//      .attr("class", "shapes")
-//            
-//     // Create all of the circles 
-//        g.selectAll("circle")
-//         .attr("class", "circle")
-//         .attr("cx", function(d) {
-//                return projection([d.lon,d.lat])[0];})
-//          .attr("cy", function(d) {
-//                return projection([d.lon, d.lat])[1];})
-//          .attr("r", 2)
-//         // Add tooltip so that it appears over mouseover on the circle
-//         .on('mouseover', function(d) {
-//            tooltip.transition()
-//                   .duration(100)
-//                   .style("fill", "black")
-//                   .style("opacity", ".9");
-//            // Format the tooltip
-//            tooltip.html(
-//             "<table>" 
-//             + "<tr>" + "<td style= 'text-align:left;'> Name </td>" 
-//                      + "<td style= 'text-align:center;'>  :  </td>" + 
-//                      "<td style= 'text-align:right;'>" + d.name + "</td>" 
-//             + "</tr>" 
-//             + "<tr>" + "<td style= 'text-align:left;'>" + "Type" + "</td>" 
-//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-//                      "<td style= 'text-align:right;'>" + d.type + "</td>" 
-//             + "</tr>" 
-//              + "<tr>" + "<td style= 'text-align:left;'>" + "Culture" + "</td>" 
-//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-//                      "<td style= 'text-align:right;'>" + d.culture + "</td>" 
-//             + "</tr>" 
-//             + "<tr>" + "<td style= 'text-align:left;'>" + "Gender" + "</td>" 
-//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-//                      "<td style= 'text-align:right;'>" + d.gender + "</td>" 
-//             + "</tr>" 
-//             + "</table>")
-//                   .style("left", (d3.event.pageX ) + "px")
-//                   .style("top", (d3.event.pageY) + "px")})
-//            // Deactivate the tooltip
-//           .on("mouseout", function(d) {
-//             tooltip.transition()
-//               .duration(500)
-//               .style("opacity", 0);
-//           });
-//            
-//        // Create all of the Squares
-//        g.selectAll("rect")
-//         .attr("class", "rect")
-//         .attr("x", function(d) {
-//                return projection([d.lon,d.lat])[0];})
-//          .attr("y", function(d) {
-//                return projection([d.lon, d.lat])[1];})
-//          .attr("width", "4")
-//          .attr("height", "4")
-//            
-//         // Add tooltip so that it appears over mouseover on the circle
-//         .on('mouseover', function(d) {
-//            tooltip.transition()
-//                   .duration(100)
-//                   .style("fill", "black")
-//                   .style("opacity", ".9");
-//            // Format the tooltip
-//            tooltip.html(
-//             "<table>" 
-//             + "<tr>" + "<td style= 'text-align:left;'> Name </td>" 
-//                      + "<td style= 'text-align:center;'>  :  </td>" + 
-//                      "<td style= 'text-align:right;'>" + d.name + "</td>" 
-//             + "</tr>" 
-//             + "<tr>" + "<td style= 'text-align:left;'>" + "Type" + "</td>" 
-//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-//                      "<td style= 'text-align:right;'>" + d.type + "</td>" 
-//             + "</tr>" 
-//              + "<tr>" + "<td style= 'text-align:left;'>" + "Culture" + "</td>" 
-//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-//                      "<td style= 'text-align:right;'>" + d.culture + "</td>" 
-//             + "</tr>" 
-//             + "<tr>" + "<td style= 'text-align:left;'>" + "Gender" + "</td>" 
-//                      + "<td style= 'text-align:center;'>" + ":" +  "</td>" + 
-//                      "<td style= 'text-align:right;'>" + d.gender + "</td>" 
-//             + "</tr>" 
-//             + "</table>")
-//            
-//                   .style("left", (d3.event.pageX ) + "px")
-//                   .style("top", (d3.event.pageY) + "px")})
-//            // Deactivate the tooltip
-//           .on("mouseout", function(d) {
-//             tooltip.transition()
-//               .duration(500)
-//               .style("opacity", 0);
-//           });
+            .duration(500)
+            .style("opacity", 0);
+        });  
             
     });//These bracets are for d3.csv line above
 });//These brackets are for d3.json line
@@ -332,13 +206,18 @@ function clicked(d) {
 
 // set the colors for the regions
     // regions can be based on their instument type color:
-    //color scheme for broad type:
-    //   1) Chordophone: #BE79DF
-    //   2) Aerophone: #00FFFF
-    //   3) Idiophone: #c90e0e
-    //   4) Membranophone: #194719
+    //color scheme for minot type:
+    //   1) Composite chordophone: #32a852
+    //   2) Free aerophone: #7cb7eb
+    //   3) Non-free aerophone: #daa5f2
+    //   4) Struck idiophone: #e36db4
+    //   5) Simple chordophone: #871b1f
+    //   6) Plucked idiophone: #2f9685
+    //   7) Struck Membranophone: #edd539
 function changeMinotColorScheme(){
+    //change color scheme
     g.selectAll("path")
+    .on("click", clicked)
     .style("fill", function(d) {
             var classification = d.properties.minotType;
             if(classification === "Composite chordophone") {
@@ -359,6 +238,38 @@ function changeMinotColorScheme(){
                 // light grey 
                 return "rgb(213,222,217)";}
     });
+    
+    //change legend
+    legend.attr("x", width-250).attr("width", 250);
+    legendText.attr("x", width - 100);
+    
+    //remove current legend values
+    chordophoneColor.style("opacity", 0);
+    chordophoneText.style("opacity", 0);
+    aerophoneColor.style("opacity", 0);
+    aerophoneText.style("opacity", 0);
+    idiophoneColor.style("opacity", 0);
+    idiophoneText.style("opacity", 0);
+    membranophoneColor.style("opacity", 0);
+    membranophoneText.style("opacity", 0);
+    
+    //add new legend values
+    compositeChordophoneColor.style("opacity", 10);
+    compositeChordophoneText.style("opacity", 1);
+    freeAerophoneColor.style("opacity", 1);
+    freeAerophoneText.style("opacity", 1);
+    nonfreeAerophoneColor.style("opacity", 1);
+    nonfreeAerophoneColorText.style("opacity", 1);
+    struckIdiophoneColor.style("opacity", 1);
+    struckIdiophoneText.style("opacity", 1);
+    simpleChordophoneColor.style("opacity", 1);
+    simpleChordophoneText.style("opacity", 1);
+    struckMembranophoneColor.style("opacity", 1);
+    struckMembranophoneText.style("opacity", 1);
+    pluckedIdiophoneColor.style("opacity", 1);
+    pluckedIdiophoneText.style("opacity", 1);
+   
+    
 }
 
 
@@ -378,170 +289,223 @@ function changeBroadColorScheme(){
                 // light grey 
                 return "rgb(213,222,217)";}
     });
+    
+    //change legend
+    legend.attr("x", width-200).attr("width", 200);
+    legendText.attr("x", width - 75);
+    
+    //remove current legend values
+    chordophoneColor.style("opacity", 1);
+    chordophoneText.style("opacity", 1);
+    aerophoneColor.style("opacity", 1);
+    aerophoneText.style("opacity", 1);
+    idiophoneColor.style("opacity", 1);
+    idiophoneText.style("opacity", 1);
+    membranophoneColor.style("opacity", 1);
+    membranophoneText.style("opacity", 1);
+    
+    //add new legend values
+    compositeChordophoneColor.style("opacity", 0);
+    compositeChordophoneText.style("opacity", 0);
+    freeAerophoneColor.style("opacity", 0);
+    freeAerophoneText.style("opacity", 0);
+    nonfreeAerophoneColor.style("opacity", 0);
+    nonfreeAerophoneColorText.style("opacity", 0);
+    struckIdiophoneColor.style("opacity", 0);
+    struckIdiophoneText.style("opacity", 0);
+    simpleChordophoneColor.style("opacity", 0);
+    simpleChordophoneText.style("opacity", 0);
+    struckMembranophoneColor.style("opacity", 0);
+    struckMembranophoneText.style("opacity", 0);
+    pluckedIdiophoneColor.style("opacity", 0);
+    pluckedIdiophoneText.style("opacity", 0);
 }
 
-// Legend for Cultures
- svg.append("rect")
-        .attr("x", width-200)
-        .attr("y", height-120)
-        .attr("width", 200)
-        .attr("rx", 10)
-        .attr("ry", 10)
-        .style("opacity",0.5)
-        .attr("height", 120)
-        .attr("fill", "lightgrey")
-        .style("stroke-size", "1px");
+// Legend for Instrument Classification 
+//Legend should be 200 for broad type and 250 for minot type
+var legend = svg.append("rect")
+    .attr("x", width-200)
+    .attr("y", height-120)
+    .attr("width", 200)
+    .attr("rx", 10)
+    .attr("ry", 10)
+    .style("opacity",0.5)
+    .attr("height", 120)
+    .attr("fill", "lightgrey")
+    .style("stroke-size", "1px");
 
-    svg.append("circle")
-        .attr("r", 5)
-        .attr("cx", width-120)
-        .attr("cy", height-75)
-        .style("fill", "#85ad33");
-    svg.append("text")
-        .attr("class", "label")
-        .attr("x", width -130)
-        .attr("y", height-70)
-        .style("text-anchor", "end")
-        .text("Inca");
+var legendText = svg.append("text")
+    .attr("class", "legendLabel")
+    .attr("x", width -75)
+    .attr("y", height-105)
+    .style("text-anchor", "end")
+    .style("font-weight", "bold")
+    .text("Legend");
 
-   svg.append("circle")
-        .attr("r", 5)
-        .attr("cx", width-40)
-        .attr("cy", height-75)
-        .style("fill", "BE79DF");
-    svg.append("text")
-        .attr("class", "label")
-        .attr("x", width -50)
-        .attr("y", height-70)
-        .style("text-anchor", "end")
-        .text("Aztec");
+//Legend Properties for Broad Type
+var chordophoneColor = svg.append("circle")
+    .attr("class", "chordophoneColor")
+    .attr("r", 5)
+    .attr("cx", width-170)
+    .attr("cy", height-80)
+    .style("fill", "#BE79DF");
 
-    svg.append("circle")
-        .attr("r", 5)
-        .attr("cx", width-120)
-        .attr("cy", height-55)
-        .style("fill", "194719");
-    svg.append("text")
-        .attr("class", "label")
-        .attr("x", width -130)
-        .attr("y", height-50)
-        .style("text-anchor", "end")
-        .text("Celtic");
+var chordophoneText = svg.append("text")
+    .attr("class", "chordophoneText")
+    .attr("class", "label")
+    .attr("x", width -70)
+    .attr("y", height-75)
+    .style("text-anchor", "end")
+    .text("Chordophone");
 
-   svg.append("circle")
-        .attr("r", 5)
-        .attr("cx", width-40)
-        .attr("cy", height-55)
-        .style("fill", "ff5050");
-    svg.append("text")
-        .attr("class", "label")
-        .attr("x", width -50)
-        .attr("y", height-50)
-        .style("text-anchor", "end")
-        .text("Egyptian");
+var aerophoneColor = svg.append("circle")
+    .attr("class", "aerophoneColor")
+    .attr("r", 5)
+    .attr("cx", width-170)
+    .attr("cy", height-60)
+    .style("fill", "#00FFFF");
 
-   svg.append("circle")
-        .attr("r", 5)
-        .attr("cx", width-120)
-        .attr("cy", height-35)
-        .style("fill", "#0A97B0");
-    svg.append("text")
-        .attr("class", "label")
-        .attr("x", width -130)
-        .attr("y", height-30)
-        .style("text-anchor", "end")
-        .text("Norse");
+var aerophoneText = svg.append("text")
+    .attr("class", "aerophoneText")
+    .attr("x", width -86)
+    .attr("y", height-55)
+    .style("text-anchor", "end")
+    .text("Aerophone");
 
-   svg.append("circle")
-        .attr("r", 5)
-        .attr("cx", width-40)
-        .attr("cy", height-35)
-        .style("fill", "ff9900");
-    svg.append("text")
-        .attr("class", "label")
-        .attr("x", width -50)
-        .attr("y", height-30)
-        .style("text-anchor", "end")
-        .text("Yoruba");
+var idiophoneColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-170)
+    .attr("cy", height-40)
+    .style("fill", "#c90e0e");
 
-  svg.append("circle")
-        .attr("r", 5)
-        .attr("cx", width-120)
-        .attr("cy", height-15)
-        .style("fill", "#035AA6");
-    svg.append("text")
-        .attr("class", "label")
-        .attr("x", width -130)
-        .attr("y", height-10)
-        .style("text-anchor", "end")
-        .text("Greek");
+var idiophoneText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -91)
+    .attr("y", height-35)
+    .style("text-anchor", "end")
+    .text("Idiophone");
 
-   svg.append("circle")
-        .attr("r", 5)
-        .attr("cx", width-40)
-        .attr("cy", height-15)
-        .style("fill", "#c90e0e");
-    svg.append("text")
-        .attr("class", "label")
-        .attr("x", width -50)
-        .attr("y", height-10)
-        .style("text-anchor", "end")
-        .text("Japanese");
+var membranophoneColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-170)
+    .attr("cy", height-20)
+    .style("fill", "#194719");
 
-    svg.append("text")
-        .attr("class", "label")
-        .attr("x", width -100)
-        .attr("y", height-90)
-        .style("text-anchor", "middle")
-        .style("fill", "black") 
-        .attr("font-size", "20px")
-        .text("Culture"); 
+var membranophoneText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -48)
+    .attr("y", height-15)
+    .style("text-anchor", "end")
+    .text("Membranophone");
 
-// Legend for Shapes
- svg.append("rect")
-        .attr("x", width-1300)
-        .attr("y", height-100)
-        .attr("width", 125)
-        .attr("rx", 10)
-        .attr("ry", 10)
-        .style("opacity",0.5)
-        .attr("height", 100)
-        .attr("fill", "lightgrey")
-        .style("stroke-size", "1px");
+//Legend Propertied for Minot Type
+var compositeChordophoneColor = svg.append("circle")
+    .attr("class", "chordophoneColor")
+    .attr("r", 5)
+    .attr("cx", width-230)
+    .attr("cy", height-80)
+    .style("opacity", 0)
+    .style("fill", "#32a852");
 
-     svg.append("circle")
-            .attr("r", 5)
-            .attr("cx", width-1220)
-            .attr("cy", height-40)
-            .attr("fill", "#E8E4E1")
-            .attr("stroke", "black");
-     svg.append("text")
-            .attr("class", "label")
-            .attr("x", width -1240)
-            .attr("y", height-35)
-            .style("text-anchor", "end")
-            .text("Male");
+var compositeChordophoneText = svg.append("text")
+    .attr("class", "chordophoneText")
+    .attr("class", "label")
+    .attr("x", width -60)
+    .attr("y", height-75)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Composite Chordophone");
 
-    svg.append("rect")
-            .attr("x", width-1225)
-            .attr("y", height-15)
-            .attr("width", 9)
-            .attr("height", 9)
-            .attr("fill", "#484848")
-            .attr("troke", "black");
-     svg.append("text")
-            .attr("class", "label")
-            .attr("x", width -1240)
-            .attr("y", height-10)
-            .style("text-anchor", "end")
-            .text("Female");
+var struckMembranophoneColor = svg.append("circle")
+    .attr("class", "chordophoneColor")
+    .attr("r", 5)
+    .attr("cx", width-230)
+    .attr("cy", height-95)
+    .style("opacity", 0)
+    .style("fill", "#edd539");
 
-     svg.append("text")
-            .attr("class", "label")
-            .attr("x", width -1235)
-            .attr("y", height-60)
-            .style("text-anchor", "middle")
-            .style("fill", "black") 
-            .attr("font-size", "18px")
-            .text("Gender"); 
+var struckMembranophoneText = svg.append("text")
+    .attr("class", "chordophoneText")
+    .attr("class", "label")
+    .attr("x", width -65)
+    .attr("y", height-90)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Struck Membranophone");
+
+var freeAerophoneColor = svg.append("circle")
+    .attr("class", "aerophoneColor")
+    .attr("r", 5)
+    .attr("cx", width-230)
+    .attr("cy", height-65)
+    .style("opacity", 0)
+    .style("fill", "#7cb7eb");
+
+var freeAerophoneText = svg.append("text")
+    .attr("class", "aerophoneText")
+    .attr("x", width -117)
+    .attr("y", height-60)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Free Aerophone");
+
+var nonfreeAerophoneColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-230)
+    .attr("cy", height-50)
+    .style("opacity", 0)
+    .style("fill", "#daa5f2");
+
+var nonfreeAerophoneColorText= svg.append("text")
+    .attr("class", "label")
+    .attr("x", width - 84)
+    .attr("y", height-45)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Non-Free Aerophone");
+
+var struckIdiophoneColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-230)
+    .attr("cy", height-35)
+    .style("opacity", 0)
+    .style("fill", "#e36db4");
+
+var struckIdiophoneText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -109)
+    .attr("y", height-31)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Struck Idiophone");
+
+var simpleChordophoneColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-230)
+    .attr("cy", height-20)
+    .style("opacity", 0)
+    .style("fill", "#871b1f");
+
+var simpleChordophoneText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -83)
+    .attr("y", height-15)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Simple Chordophone");
+
+var pluckedIdiophoneColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-230)
+    .attr("cy", height-5)
+    .style("opacity", 0)
+    .style("fill", "#2f9685");
+
+var pluckedIdiophoneText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -99)
+    .attr("y", height-1)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Plucked Idiophone");
 
