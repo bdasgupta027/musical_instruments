@@ -373,6 +373,7 @@ var svg = d3.select("#container")
 	        .append("svg")
 	        .attr("width", width)
 	        .attr("height", height)
+            .style("border", "3px")
             .append("g");
 
 // Create secondary layer to canvas SVG
@@ -486,6 +487,9 @@ d3.json("countries.geo.json").then(function(json) {
                 "</div><div><b>Minot Type</b>: " + d.properties.minotType + "</div><div><b>Specific Type</b>: " + d.properties.specificType)
                        .style("left", (d3.event.pageX ) + "px")
                        .style("top", (d3.event.pageY) + "px")
+                div.select("button").on("click", function() {
+                    div.style("opacity", 0)
+                });
             }else{
                 tooltip.html("Country: " + d.properties.nation)
                 .style("left", (d3.event.pageX ) + "px")
