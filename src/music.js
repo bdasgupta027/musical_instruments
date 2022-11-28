@@ -116,14 +116,14 @@ var treeData =
 // Set the dimensions and margins of the diagram
 var margin = {top: 20, right: 90, bottom: 30, left: 90},
     width = 560 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    height = 590 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
 var innersvg = d3.select("body").append("svg")
     .attr("width", 1000)
-    .attr("height", 400)
+    .attr("height", 600)
   .append("g")
     .attr("transform", "translate("
           + margin.left + "," + margin.top + ")");
