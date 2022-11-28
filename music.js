@@ -835,3 +835,43 @@ var pluckedIdiophoneText = svg.append("text")
     .style("opacity", 0)
     .text("Plucked Idiophone");
 
+anychart.onDocumentReady(function () {
+      // The data used in this sample can be obtained from the CDN
+      // https://cdn.anychart.com/samples/sunburst-charts/coffee-flavour-wheel/data.json
+      anychart.data.loadJsonFile(
+        'sunburstdata.json',
+        function (data) {
+          // makes tree from the data for the sample
+          var dataTree = anychart.data.tree(data, 'as-table');
+
+          // create sunburst chart
+          var chart = anychart.sunburst(dataTree);
+
+          // set calculation mode
+          chart.calculationMode('ordinal-from-root');
+
+          // set chart title
+          chart.title('Instrument Classifications');
+
+          // set settings for the penultimate level labels
+          chart.level(-2).labels().position('radial');
+
+          // set chart labels settings
+          chart.labels().hAlign('center');
+
+          // set settings for leaves labels
+          chart.leaves().labels().minFontSize(8).textOverflow('...');
+
+          // the fill specified in the data has priority
+          // set point fill
+          chart.fill(function () {
+            return anychart.color.darken(this.parentColor, 0.15);
+          });
+
+          // set container id for the chart
+          chart.container('container2');
+          // initiate chart drawing
+          chart.draw();
+        }
+      );
+    });
