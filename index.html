@@ -18,13 +18,8 @@ Weblink for Project: https://github.com/bdasgupta027/musical_instruments
         <script type="text/javascript" src="https://d3js.org/topojson.v1.min.js"></script>
         <script type="text/javascript" src="https://d3js.org/d3.geo.projection.v0.min.js"></script>
         
-        <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-        <script src="https://cdn.anychart.com/releases/v8/js/anychart-sunburst.min.js"></script>
-        <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
-        <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
-        <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
-        <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
-        <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+        <!-- sunburst script addon -->
+        <script src="https://cdn.jsdelivr.net/npm/@observablehq/stdlib"></script>
         
         <!-- CSS file -->
 	   <link rel="stylesheet" type="text/css" href="music.css">
@@ -38,6 +33,10 @@ Weblink for Project: https://github.com/bdasgupta027/musical_instruments
         <br><br><br><br><br><br>
         <div id="container"><center></center></div>
          
+        <!-- sunburst script addon -->
+        <svg id="partitionSVG" width="932" height="932" viewBox="0 0 932 932"></svg>
+        <script src="bundle.js"></script>
+        <!-- sunburst script addon -->
         
         <!-- Javascript file -->
         <script  src="music.js"> </script>
