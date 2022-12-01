@@ -24,93 +24,199 @@ Look of Map, Format of tooltips, Click to Zoom, Different Shapes, Hover over Bou
 /*global d3*/
 
 var treeData =
-  {
+{
   "name":"Instruments",
   "children": [
-    {"name":"Idiophones",
+    {"name":"Idiophones (1)",
      "children": [
-       {"name":"Struck idiophones",
+       {"name":"Struck idiophones (11)",
        "children": [
-         {"name":"Directly struck idiophones"},
-         {"name":"Indirectly struck idiophones"}
+         {"name":"Directly struck idiophones (111)",
+         "children":[
+          {"name":"Marimba"},
+          {"name":"Gyil"},
+          {"name":"Marimba"},
+          {"name":"Cajon"},
+          {"name":"Steelpan"}
+         ]},
+         {"name":"Indirectly struck idiophones (112)",
+         "children":[
+          {"name":"Pandeiro"},
+          {"name":"Angklung"}
+         ]}
        ]},
-       {"name":"Plucked idiophones",
+       {"name":"Plucked idiophones (12)",
        "children":[
-         {"name":"In the form of a frame"},
-         {"name":"In the form of a comb"},
-         {"name":"Mixed sets of lamellophones"}
+         {"name":"In the form of a frame (121)"},
+         {"name":"In the form of a comb (122)",
+         "children":[
+          {"name":"Mbira"}
+         ]},
+         {"name":"Mixed sets of lamellophones (123)"}
        ]},
-       {"name":"Friction idiophones",
+       {"name":"Friction idiophones (13)",
        "children": [
-         {"name":"Friction sticks"},
-         {"name":"Friction plaques"},
-         {"name":"Friction vessels"}
+         {"name":"Friction sticks (131)"},
+         {"name":"Friction plaques (132)"},
+         {"name":"Friction vessels (133)"}
        ]},
-       {"name":"Blown idiophones",
+       {"name":"Blown idiophones (12)",
        "children": [
-         {"name":"Blown sticks"},
-         {"name":"Blown plaques"}
+         {"name":"Blown sticks (141)"},
+         {"name":"Blown plaques (142)"}
        ]},
-       {"name":"Unclassified idiophones"}
+       {"name":"Unclassified idiophones (15)"}
      ]},
-    {"name":"Membranophones",
+    {"name":"Membranophones (2)",
     "children": [
-      {"name":"Struck membranophones",
+      {"name":"Struck membranophones (21)",
       "children": [
-        {"name":"Directly struck membranophones"},
-        {"name":"Shaken membranophones"}
+        {"name":"Directly struck membranophones (211)",
+        "children":[
+          {"name":"Daf"},
+          {"name":"Doira"},
+          {"name":"Madal"},
+          {"name":"Darbuka"}
+        ]},
+        {"name":"Shaken membranophones (212)"}
       ]},
-      {"name":"Plucked membranophones"},
-      {"name":"Friction membranophones",
+      {"name":"Plucked membranophones (22)"},
+      {"name":"Friction membranophones (23)",
       "children": [
-        {"name":"Friction drums with stick"},
-        {"name":"Friction drum with cord"},
-        {"name":"Hand friction drums"}
+        {"name":"Friction drums with stick (231)"},
+        {"name":"Friction drum with cord (232)"},
+        {"name":"Hand friction drums (233)"}
       ]},
-      {"name":"Singing membranes (kazoos)",
+      {"name":"Singing membranes (kazoos) (24)",
       "children": [
-        {"name":"Free kazoos"},
-        {"name":"Tube or vessel-kazoos"}
+        {"name":"Free kazoos (241)"},
+        {"name":"Tube or vessel-kazoos (242))"}
       ]},
-      {"name":"Unclassified membranophones"}
+      {"name":"Unclassified membranophones (25)"}
     ]},
-    {"name":"Chordophones",
+    {"name":"Chordophones (3)",
     "children": [
-      {"name":"Simple chordophones or zithers",
+      {"name":"Simple chordophones or zithers (31)",
        "children": [
-         {"name":"Bar zithers"},
-         {"name":"Tube zithers"},
-         {"name":"Raft zithers"},
-         {"name":"Board zithers"},
-         {"name":"Trough zithers"},
-         {"name":"Bar zithers"}
+         {"name":"Bar zithers (311)",
+         "children":[
+          {"name":"Saraswati veena"},
+          {"name":"Pin pia"}
+         ]},
+         {"name":"Tube zithers (312)",
+         "children":[
+          {"name":"Koto"},
+          {"name":"Gayageum"},
+          {"name":"Valiha"}
+         ]},
+         {"name":"Raft zithers (313)"},
+         {"name":"Board zithers (314)",
+         "children":[
+          {"name":"Kantele"},
+          {"name":"Cimbalom"},
+          {"name":"Tar"},
+          {"name":"Kokles"},
+          {"name":"Langeleik"}
+         ]},
+         {"name":"Trough zithers (315)"},
+         {"name":"Bar zithers (316)"}
        ]},
-      {"name":"Composite chordophones",
+      {"name":"Composite chordophones (32)",
       "children":[
-        {"name":"Lutes"},
-        {"name":"Harps"},
-        {"name":"Harp Lutes"}
+        {"name":"Lutes (321)",
+        "children":[
+          {"name":"Lyra"},
+          {"name":"Nyatiti"},
+          {"name":"Endongo"},
+          {"name":"Talharpa"},
+          {"name":"Kithara"},
+          {"name":"Kinnor"},
+          {"name":"đàn bầu"},
+          {"name":"Crwth"},
+          {"name":"Banjo"},
+          {"name":"Rubab"},
+          {"name":"Lahuta"},
+          {"name":"Dranyen"},
+          {"name":"Chrango"},
+          {"name":"Pipa"},
+          {"name":"Tamburica"},
+          {"name":"Bouzouki"},
+          {"name":"Oud"},
+          {"name":"Mandolin"},
+          {"name":"Dombra"},
+          {"name":"Komuz"},
+          {"name":"Gusle"},
+          {"name":"Kudyapi"},
+          {"name":"Saz"},
+          {"name":"Dotara"},
+          {"name":"Cuatro"},
+          {"name":"Tres"},
+          {"name":"Waldzither"},
+          {"name":"Ukulele"},
+          {"name":"Morin Khuur"},
+          {"name":"Fiddle"},
+          {"name":"Portugeese guitar"},
+          {"name":"Guitar"},
+          {"name":"Dutar"}
+        ]},
+        {"name":"Harps (322)",
+        "children":[
+          {"name":"Saung-gauk"},
+          {"name":"Harp"},
+          {"name":"Paraguayan harp"},
+          {"name":"Cláirseach"}
+        ]},
+        {"name":"Harp Lutes (323)"}
       ]},
-      {"name":"Unclassified chordophones"}
+      {"name":"Unclassified chordophones (33)"}
     ]},
-    {"name":"Aerophones",
+    {"name":"Aerophones (4)",
     "children": [
-      {"name":"Free aerophones",
+      {"name":"Free aerophones (41)",
       "children": [
-        {"name":"Displacement free aerophones"},
-        {"name":"Interruptive free aerophones"},
-        {"name":"Plosive aerophones"}
+        {"name":"Displacement free aerophones (411)",
+        "children":[
+          {"name":"Tambin"}
+        ]},
+        {"name":"Interruptive free aerophones (412)",
+        "children":[
+          {"name":"Bandoneón"},
+          {"name":"English concertina"},
+          {"name":"Khene"},
+          {"name":"Garmon"},
+          {"name":"Accordion"}
+        ]},
+        {"name":"Plosive aerophones (413)"}
       ]},
-      {"name":"Non-free aerophones",
+      {"name":"Non-free aerophones (wind instruments proper) (42)",
       "children": [
-         {"name":"Edge-blown aerophones or flutes"},
-         {"name":"Reed aerophones"},
-         {"name":"Trumpets"},
-         {"name":"Mixed sets of wind instruments"} 
+         {"name":"Edge-blown aerophones or flutes (421)",
+         "children":[
+          {"name":"Duduk daduk"},
+          {"name":"Rondador"},
+          {"name":"Nose flute"},
+          {"name":"Fujara"}
+         ]},
+         {"name":"Reed aerophones (422)",
+         "children":[
+          {"name":"Birbyne"},
+          {"name":"Bagpipes"},
+          {"name":"Bock"},
+          {"name":"Balaban"},
+          {"name":"Gaida"}
+         ]},
+         {"name":"Trumpets (423)",
+         "children":[
+          {"name":"Didgeridoo"},
+          {"name":"Abeng"},
+          {"name":"Lesiba"},
+          {"name":"Alphorn"}
+         ]},
+         {"name":"Mixed sets of wind instruments (424)"} 
       ]},
-      {"name":"Mixed sets of aerophones"}
+      {"name":"Mixed sets of aerophones (43)"}
     ]},
-    {"name":"Electrophones"}
+    {"name":"Electrophones (5)"}
   ]
 };
 // Set the dimensions and margins of the diagram
