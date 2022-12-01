@@ -980,12 +980,12 @@ require()('@observablehq/flare').then(data => {
     root.each(d => d.current = d);
 
     const svg = d3.select('#partitionSVG')
-            .style("width_sun", "100%")
+            .style("width", "100%")
             .style("height", "auto")
             .style("font", "10px sans-serif");
 
     const g = svg.append("g")
-            .attr("transform", `translate(${width_sun / 2},${width_sun / 2})`);
+            .attr("transform", `translate(${width / 2},${width / 2})`);
 
     const path = g.append("g")
             .selectAll("path")
