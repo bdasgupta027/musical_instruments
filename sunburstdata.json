@@ -1,4 +1,5 @@
 [
+    
     {
         "name": "Instruments",
         "id": "instruments",
@@ -8,37 +9,38 @@
         "name": "Idiophones",
         "parent": "instruments",
         "id": "idiophones",
-        "fill": "#c90e0e"
+        "fill": "#8D6A9F"
     },
     {
         "name": "Membranophones",
         "parent": "instruments",
         "id": "membranophones",
-        "fill": "#194719"
+        "fill": "#DB5A42"
     },
     {
         "name": "Chordophones",
         "parent": "instruments",
         "id": "chordophones",
-        "fill": "#BE79DF"
+        "fill": "#89B6A5"
     },
     {
         "name": "Aerophones",
         "parent": "instruments",
         "id": "aerophones",
-        "fill": "#00FFFF"
+        "fill": "#FFD275"
     },
+     
     {
         "name": "Struck",
         "parent": "idiophones",
         "id": "struck-idiophones",
-        "fill": "#c90e0e"
+        "fill": "#67218a"
     },
     {
         "name": "Plucked",
         "parent": "idiophones",
         "id": "plucked-idiophones",
-        "fill": "#c90e0e"
+        "fill": "#c389e0"
     },
     {
         "name": "Friction",
@@ -62,61 +64,62 @@
         "name": "Struck",
         "parent": "membranophones",
         "id": "struck-membranophones",
-        "fill": "#194719"
+        "fill": "#f29483"
     },
     {
         "name": "Plucked",
         "parent": "membranophones",
         "id": "plucked-membranophones",
-        "fill": "#194719"
+        "fill": "#b86758"
     },
     {
         "name": "Friction",
         "parent": "membranophones",
         "id": "friction-membranophones",
-        "fill": "#194719"
+        "fill": "#b86758"
     },
     {
         "name": "Singing/Kazoo",
         "parent": "membranophones",
         "id": "singing-membranophones",
-        "fill": "#194719"
+        "fill": "#b86758"
     },
     {
         "name": "Unclassified",
         "parent": "membranophones",
         "id": "unclassified-membranophones",
-        "fill": "#194719"
+        "fill": "#b86758"
     },
+
     {
         "name": "Simple/Zither",
         "parent": "chordophones",
         "id": "simple-chordophones",
-        "fill": "#BE79DF"
+        "fill": "#076943"
     },
     {
         "name": "Composite",
         "parent": "chordophones",
         "id": "composite-chordophones",
-        "fill": "#BE79DF"
+        "fill": "#359c75"
     },
     {
         "name": "Unclassified",
         "parent": "chordophones",
         "id": "unclassified-chordophones",
-        "fill": "#BE79DF"
+        "fill": "#9fd1bf"
     },
     {
         "name": "Free",
         "parent": "aerophones",
         "id": "free-aerophones",
-        "fill": "#00FFFF"
+        "fill": "#e0a936"
     },
     {
         "name": "Non-Free",
         "parent": "aerophones",
         "id": "non-free-aerophones",
-        "fill": "#00FFFF"
+        "fill": "#916303"
     },
     {
         "name": "Mixed",
@@ -188,85 +191,85 @@
         "name": "Directly",
         "parent": "struck-membranophones",
         "id": "directly-struck-membranophones",
-        "fill": "#194719"
+        "fill": "#b86758"
     },
     {
         "name": "Shaken",
         "parent": "struck-membranophones",
         "id": "shaken-struck-membranophones",
-        "fill": "#194719"
+        "fill": "#b86758"
     },
     {
         "name": "Drums with Stick",
         "parent": "friction-membranophones",
         "id": "drums-with-stick-friction-membranophones",
-        "fill": "#194719"
+        "fill": "#b86758"
     },
     {
         "name": "Drums with Chord",
         "parent": "friction-membranophones",
         "id": "drums-with-chord-friction-membranophones",
-        "fill": "#194719"
+        "fill": "#b86758"
     },
     {
         "name": "Hand Drums",
         "parent": "friction-membranophones",
         "id": "hand-drums-friction-membranophones",
-        "fill": "#194719"
+        "fill": "#b86758"
     },
     {
         "name": "Free Kazoos",
         "parent": "singing-membranophones",
         "id": "free-kazoos-singing-membranophones",
-        "fill": "#194719"
+        "fill": "#b86758"
     },
     {
         "name": "Tube/Vessel Kazoos",
         "parent": "singing-membranophones",
         "id": "tube-vessel-kazoos-singing-membranophones",
-        "fill": "#194719"
+        "fill": "#b86758"
     },
     {
         "name": "Bar Zithers",
         "parent": "simple-chordophones",
         "id": "bar-zithers-simple-chordophones",
-        "fill": "#BE79DF"
+        "fill": "#9fd1bf"
     },
     {
         "name": "Tube Zithers",
         "parent": "simple-chordophones",
         "id": "tube-zithers-simple-chordophones",
-        "fill": "#BE79DF"
+        "fill": "#9fd1bf"
     },
     {
         "name": "Raft Zithers",
         "parent": "simple-chordophones",
         "id": "raft-zithers-simple-chordophones",
-        "fill": "#BE79DF"
+        "fill": "#9fd1bf"
     },
     {
         "name": "Board Zithers",
         "parent": "simple-chordophones",
         "id": "board-zithers-simple-chordophones",
-        "fill": "#BE79DF"
+        "fill": "#9fd1bf"
     },
     {
         "name": "Lutes",
         "parent": "composite-chordophones",
         "id": "lutes-composite-chordophones",
-        "fill": "#BE79DF"
+        "fill": "#9fd1bf"
     },
     {
         "name": "Harps",
         "parent": "composite-chordophones",
         "id": "harps-composite-chordophones",
-        "fill": "#BE79DF"
+        "fill": "#9fd1bf"
     },
     {
         "name": "Harp Lutes",
         "parent": "composite-chordophones",
         "id": "harp-lutes-composite-chordophones",
-        "fill": "#BE79DF"
+        "fill": "#9fd1bf"
     },
     {
         "name": "Displacement",

@@ -8,7 +8,7 @@ Weblink for Project: https://github.com/bdasgupta027/musical_instruments
 
 <html>
 	<head>
-        <title>Musical Instruments of the World</title>
+        <title>Classification of National Instruments</title>
 		<meta charset="utf-8">
 		<title>D3: Setting path fills</title>
         
@@ -34,21 +34,27 @@ Weblink for Project: https://github.com/bdasgupta027/musical_instruments
 	</head>
 	<body>
         <h1><center><strong>Musical Instruments of the World</strong></center></h1>
-               <div id="container2"></div>
-        <br><br><br><br><br><br>
+               
+        <br>
+        <p> <em><center> A presentation of various musical instruments and their classification across different cultures. In some cases, instruments remain in wide use within the nation but in others, their importance is primarily symbolic. Each instrument is also classified by the Hornbostel-Sachs system in which they're categorized based on the sound they produce.</center></em></p>
+        
+        <center>
+            <INPUT TYPE = "button" VALUE = "Reload Page" onClick="history.go(0)">
+            <INPUT TYPE = "button" VALUE = "Color by Broad Type" onClick="changeBroadColorScheme()">
+            <INPUT TYPE = "button" VALUE = "Color by Minot Type" onClick="changeMinotColorScheme()">
+                </INPUT>
+            <INPUT TYPE = "button" VALUE = "Color by Specific Type" onClick="changeSpecificColorScheme()">
+                </INPUT>
+            </INPUT>
+            </INPUT>
+        </center>
         <div id="container"><center></center></div>
          
         
         <!-- Javascript file -->
         <script  src="music.js"> </script>
  
-        <p> <em><center> A presentation of various musical instruments and their classification across different cultures. In some cases, instruments remain in wide use within the nation but in others, their importance is primarily symbolic. Each instrument is also classified by the Hornbostel-Sachs system in which they're categorized based on the sound they produce.</center></em></p>
         
-        <center>
-            <INPUT TYPE = "button" VALUE = "Reload Page" onClick="history.go(0)">
-            <INPUT TYPE = "button" VALUE = "Color by Minot Type" onClick="changeMinotColorScheme()">
-            <INPUT TYPE = "button" VALUE = "Color by Broad Type" onClick="changeBroadColorScheme()">
-        </center>
             
 
         <div class="details"> 
@@ -106,8 +112,5 @@ Weblink for Project: https://github.com/bdasgupta027/musical_instruments
         </table>
             </center> 
                 </div>
-                </INPUT>
-            </INPUT>
-        </center>
 	</body>
 </html>

@@ -31,13 +31,27 @@ var treeData =
      "children": [
        {"name":"Struck idiophones",
        "children": [
-         {"name":"Directly struck idiophones"},
-         {"name":"Indirectly struck idiophones"}
+         {"name":"Directly struck idiophones",
+         "children":[
+          {"name":"Marimba"},
+          {"name":"Gyil"},
+          {"name":"Marimba"},
+          {"name":"Cajon"},
+          {"name":"Steelpan"}
+         ]},
+         {"name":"Indirectly struck idiophones",
+         "children":[
+          {"name":"Pandeiro"},
+          {"name":"Angklung"}
+         ]}
        ]},
        {"name":"Plucked idiophones",
        "children":[
          {"name":"In the form of a frame"},
-         {"name":"In the form of a comb"},
+         {"name":"In the form of a comb",
+         "children":[
+          {"name":"Mbira"}
+         ]},
          {"name":"Mixed sets of lamellophones"}
        ]},
        {"name":"Friction idiophones",
@@ -57,7 +71,13 @@ var treeData =
     "children": [
       {"name":"Struck membranophones",
       "children": [
-        {"name":"Directly struck membranophones"},
+        {"name":"Directly struck membranophones",
+        "children":[
+          {"name":"Daf"},
+          {"name":"Doira"},
+          {"name":"Madal"},
+          {"name":"Darbuka"}
+        ]},
         {"name":"Shaken membranophones"}
       ]},
       {"name":"Plucked membranophones"},
@@ -78,17 +98,74 @@ var treeData =
     "children": [
       {"name":"Simple chordophones or zithers",
        "children": [
-         {"name":"Bar zithers"},
-         {"name":"Tube zithers"},
+         {"name":"Bar zithers",
+         "children":[
+          {"name":"Saraswati veena"},
+          {"name":"Pin pia"}
+         ]},
+         {"name":"Tube zithers",
+         "children":[
+          {"name":"Koto"},
+          {"name":"Gayageum"},
+          {"name":"Valiha"}
+         ]},
          {"name":"Raft zithers"},
-         {"name":"Board zithers"},
+         {"name":"Board zithers",
+         "children":[
+          {"name":"Kantele"},
+          {"name":"Cimbalom"},
+          {"name":"Tar"},
+          {"name":"Kokles"},
+          {"name":"Langeleik"}
+         ]},
          {"name":"Trough zithers"},
          {"name":"Bar zithers"}
        ]},
       {"name":"Composite chordophones",
       "children":[
-        {"name":"Lutes"},
-        {"name":"Harps"},
+        {"name":"Lutes",
+        "children":[
+          {"name":"Lyra"},
+          {"name":"Nyatiti"},
+          {"name":"Endongo"},
+          {"name":"Talharpa"},
+          {"name":"Kithara"},
+          {"name":"Kinnor"},
+          {"name":"đàn bầu"},
+          {"name":"Crwth"},
+          {"name":"Banjo"},
+          {"name":"Rubab"},
+          {"name":"Lahuta"},
+          {"name":"Dranyen"},
+          {"name":"Chrango"},
+          {"name":"Pipa"},
+          {"name":"Tamburica"},
+          {"name":"Bouzouki"},
+          {"name":"Oud"},
+          {"name":"Mandolin"},
+          {"name":"Dombra"},
+          {"name":"Komuz"},
+          {"name":"Gusle"},
+          {"name":"Kudyapi"},
+          {"name":"Saz"},
+          {"name":"Dotara"},
+          {"name":"Cuatro"},
+          {"name":"Tres"},
+          {"name":"Waldzither"},
+          {"name":"Ukulele"},
+          {"name":"Morin Khuur"},
+          {"name":"Fiddle"},
+          {"name":"Portugeese guitar"},
+          {"name":"Guitar"},
+          {"name":"Dutar"}
+        ]},
+        {"name":"Harps",
+        "children":[
+          {"name":"Saung-gauk"},
+          {"name":"Harp"},
+          {"name":"Paraguayan harp"},
+          {"name":"Cláirseach"}
+        ]},
         {"name":"Harp Lutes"}
       ]},
       {"name":"Unclassified chordophones"}
@@ -97,15 +174,44 @@ var treeData =
     "children": [
       {"name":"Free aerophones",
       "children": [
-        {"name":"Displacement free aerophones"},
-        {"name":"Interruptive free aerophones"},
+        {"name":"Displacement free aerophones",
+        "children":[
+          {"name":"Tambin"}
+        ]},
+        {"name":"Interruptive free aerophones",
+        "children":[
+          {"name":"Bandoneón"},
+          {"name":"English concertina"},
+          {"name":"Khene"},
+          {"name":"Garmon"},
+          {"name":"Accordion"}
+        ]},
         {"name":"Plosive aerophones"}
       ]},
-      {"name":"Non-free aerophones",
+      {"name":"Non-free aerophones (wind instruments proper)",
       "children": [
-         {"name":"Edge-blown aerophones or flutes"},
-         {"name":"Reed aerophones"},
-         {"name":"Trumpets"},
+         {"name":"Edge-blown aerophones or flutes",
+         "children":[
+          {"name":"Duduk daduk"},
+          {"name":"Rondador"},
+          {"name":"Nose flute"},
+          {"name":"Fujara"}
+         ]},
+         {"name":"Reed aerophones",
+         "children":[
+          {"name":"Birbyne"},
+          {"name":"Bagpipes"},
+          {"name":"Bock"},
+          {"name":"Balaban"},
+          {"name":"Gaida"}
+         ]},
+         {"name":"Trumpets",
+         "children":[
+          {"name":"Didgeridoo"},
+          {"name":"Abeng"},
+          {"name":"Lesiba"},
+          {"name":"Alphorn"}
+         ]},
          {"name":"Mixed sets of wind instruments"} 
       ]},
       {"name":"Mixed sets of aerophones"}
@@ -113,17 +219,316 @@ var treeData =
     {"name":"Electrophones"}
   ]
 };
-// Set the dimensions and margins of the diagram
+
+
+
+var barMargin = {top: 10, right: 50, bottom: 10, left: 100},
+    barWidth = 560 - barMargin.left - barMargin.right,
+    barHeight = 300 - barMargin.top - barMargin.bottom;
+var barsvg = d3.select("body").append("svg")
+    .attr("width", document.getElementById('container').offsetWidth)
+    .attr("height", 400)
+  .append("g")
+    .attr("transform", "translate("
+          + -50 + "," + 10 + ")");
+
+var barX = d3.scaleBand().rangeRound([0, barWidth]).padding(0.1),
+    barY = d3.scaleLinear().rangeRound([barHeight, 0]);
+
+//BROAD TYPE BAR GRAPH
+var barG = barsvg.append("g")
+    .attr("transform", "translate(" + barMargin.left + "," + barMargin.top + ")");
+var bartooltip = d3.select("body")
+                .append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
+d3.csv("broad-type.csv")
+  	.then((data) => {
+        return data.map((d) => {
+          d.frequency = +d.frequency;
+          console.log(d.frequency);
+          return d;  
+        });
+		})
+  	.then((data) => {
+        barX.domain(data.map(function(d) { return d.letter; }));
+        barY.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+
+        barG.append("g")
+            .attr("class", "axis axis--x")
+            .attr("transform", "translate(0," + barHeight + ")")
+            .call(d3.axisBottom(barX))
+            .selectAll("text")
+            .attr("transform", "rotate(-25)")
+            .attr("dx", "-1em")
+            .style("text-anchor", "end")
+            .style("font-size", "11px");
+
+        barG.append("g")
+            .attr("class", "axis axis--y")
+            .call(d3.axisLeft(barY))
+          .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 5)
+            .attr("dy", "-2.3em")
+            .attr("dx", "-7em")
+            .attr("text-anchor", "end")
+            .text("Frequency in Map")
+            .style("fill", "black")
+            .style("font-size", "15px");
+
+        barG.selectAll(".bar")
+          .data(data)
+          .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d) { return barX(d.letter); })
+            .attr("y", function(d) { return barY(d.frequency); })
+            .attr("width", barX.bandwidth())
+            .style("fill", function(d){
+                if (d.letter === "Chordophone"){
+                    return "#89B6A5";
+                }
+                if(d.letter === "Aerophone") {
+                       return "#FFD275";}//aqua
+                if(d.letter === "Idiophone") {
+                       return "#8D6A9F";}//red
+                if(d.letter === "Membranophone") {
+                       return "#DB5A42";
+                }
+            })
+            .attr("height", function(d) { 
+            return barHeight - barY(d.frequency); })
+            .on("mouseover", function(d){
+                bartooltip.transition()
+                       .duration(100)
+                       .style("background", "black")
+                       .style("opacity", ".8");
+                // Format the tooltip
+                bartooltip.html(d.letter + " appears " + d.frequency + " times")
+                       .style("left", (d3.event.pageX ) + "px")
+                       .style("top", (d3.event.pageY) + "px");
+            })
+            .on("mouseout", function(d) {
+                bartooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+            });
+});
+    
+            
+//MINOT TYPE BAR GRAPH
+var barMargin2 = {top: 10, right: 50, bottom: 10, left: 100},
+    barWidth2 = 560 - barMargin2.left - barMargin2.right,
+    barHeight2 = 300 - barMargin2.top - barMargin2.bottom;
+var barG2 = barsvg.append("g")
+    .attr("transform", "translate(" + 600 + "," + barMargin2.top + ")");
+var bartooltip2 = d3.select("body")
+                .append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+var barX2 = d3.scaleBand().rangeRound([0, barWidth2]).padding(0.1),
+    barY2 = d3.scaleLinear().rangeRound([barHeight2, 0]);
+
+d3.csv("minot-type.csv")
+  	.then((data) => {
+        return data.map((d) => {
+          d.frequency = +d.frequency;
+          console.log(d.frequency);
+          return d;  
+        });
+		})
+  	.then((data) => {
+        barX2.domain(data.map(function(d) { return d.letter; }));
+        barY2.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+
+        barG2.append("g")
+            .attr("class", "axis axis--x")
+            .attr("transform", "translate(0," + barHeight2 + ")")
+            .call(d3.axisBottom(barX2))
+            .selectAll("text")
+            .attr("transform", "rotate(-30)")
+            .attr("dx", "-1em")
+            .style("text-anchor", "end")
+            .style("font-size", "11px");
+
+        barG2.append("g")
+            .attr("class", "axis axis--y")
+            .call(d3.axisLeft(barY2))
+          .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 5)
+            .attr("dy", "-2.3em")
+            .attr("dx", "-7em")
+            .attr("text-anchor", "end")
+            .text("Frequency in Map")
+            .style("fill", "black")
+            .style("font-size", "15px");
+
+        barG2.selectAll(".bar")
+          .data(data)
+          .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d) { return barX2(d.letter); })
+            .attr("y", function(d) { return barY2(d.frequency); })
+            .attr("width", barX2.bandwidth())
+            .attr("height", function(d) { 
+            return barHeight2 - barY2(d.frequency); })
+            .style("fill", function(d){
+                var classification = d.letter;
+                if(classification === "Composite Chordophone") {
+                   return "#359c75";} 
+                if(classification === "Free Aerophone") {
+                       return "#e0a936";}
+                if(classification === "Non-Free Aerophone") {
+                       return "#916303";}
+                if(classification === "Struck Idiophone") {
+                       return "#67218a";}
+                if(classification === "Simple Chordophone") {
+                       return "#076943";} 
+                if(classification === "Struck Membranophone") {
+                       return "#f29483";}
+                if(classification === "Plucked Idiophone") {
+                       return "#c389e0";}
+            })
+            .on("mouseover", function(d){
+                bartooltip2.transition()
+                       .duration(100)
+                       .style("background", "black")
+                       .style("opacity", ".8");
+                // Format the tooltip
+                bartooltip2.html(d.letter + " appears " + d.frequency + " times")
+                       .style("left", (d3.event.pageX ) + "px")
+                       .style("top", (d3.event.pageY) + "px");
+            })
+            .on("mouseout", function(d) {
+                bartooltip2.transition()
+                .duration(500)
+                .style("opacity", 0);
+            });
+    });
+    
+//SPECIFIC TYPE BAR GRAPH
+    var barMargin3 = {top: 10, right: 50, bottom: 10, left: 100},
+    barWidth3 = 560 - barMargin3.left - barMargin3.right,
+    barHeight3 = 300 - barMargin3.top - barMargin3.bottom;
+var barG3 = barsvg.append("g")
+    .attr("transform", "translate(" + 1100 + "," + barMargin3.top + ")");
+var bartooltip3 = d3.select("body")
+                .append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+var barX3 = d3.scaleBand().rangeRound([0, barWidth3]).padding(0.1),
+    barY3 = d3.scaleLinear().rangeRound([barHeight3, 0]);
+
+d3.csv("specific-type.csv")
+  	.then((data) => {
+        return data.map((d) => {
+          d.frequency = +d.frequency;
+          console.log(d.frequency);
+          return d;  
+        });
+		})
+  	.then((data) => {
+        barX3.domain(data.map(function(d) { return d.letter; }));
+        barY3.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+
+        barG3.append("g")
+            .attr("class", "axis axis--x")
+            .attr("transform", "translate(0," + barHeight3 + ")")
+            .call(d3.axisBottom(barX3))
+            .selectAll("text")
+            .attr("transform", "rotate(-30)")
+            .attr("dx", "-.5em")
+            .style("text-anchor", "end")
+            .style("font-size", "11px");
+
+        barG3.append("g")
+            .attr("class", "axis axis--y")
+            .call(d3.axisLeft(barY3))
+          .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 5)
+            .attr("dy", "-2.3em")
+            .attr("dx", "-7em")
+            .attr("text-anchor", "end")
+            .text("Frequency in Map")
+            .style("fill", "black")
+            .style("font-size", "15px");
+
+        barG3.selectAll(".bar")
+          .data(data)
+          .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d) { return barX3(d.letter); })
+            .attr("y", function(d) { return barY3(d.frequency); })
+            .attr("width", barX3.bandwidth())
+            .attr("height", function(d) { 
+            return barHeight3 - barY3(d.frequency); })
+            .style("fill", function(d){
+                var classification = d.letter;
+                if(classification === "Lute") {
+                       return "#B7D5B9";} 
+                if(classification === "Harp") {
+                       return "#66888A";}
+                if(classification === "Interruptive Free Aerophone") {
+                       return "#FEBE91";}
+                if(classification === "Displacement Free Aerophone") {
+                       return "#DD9733";}
+                if(classification === "Flute") {
+                       return "#C6A72A";} 
+                if(classification === "Trumpet") {
+                       return "#ACAE23";}
+                if(classification === "Reed Aerophone") {
+                       return "#DBDC69";}
+                if(classification === "Form of a comb") {
+                       return "#7E68B3";} 
+                if(classification === "Board Zither") {
+                       return "#938CC7";}
+                if(classification === "Tube Zither") {
+                       return "#701768";}
+                if(classification === "Bar Zither") {
+                       return "#540F30";}
+                if(classification === "Indirectly Struck Idiophone") {
+                       return "#FD7BA1";} 
+                if(classification === "Directly Struck Idiophone") {
+                       return "#FA6373";}
+                if(classification === "Directly Struck Membranophone") {
+                       return "#FBBED7";}
+            })
+            .on("mouseover", function(d){
+                bartooltip3.transition()
+                       .duration(100)
+                       .style("background", "black")
+                       .style("opacity", ".8");
+                // Format the tooltip
+                bartooltip3.html(d.letter + " appears " + d.frequency + " times")
+                       .style("left", (d3.event.pageX ) + "px")
+                       .style("top", (d3.event.pageY) + "px");
+            })
+            .on("mouseout", function(d) {
+                bartooltip3.transition()
+                .duration(500)
+                .style("opacity", 0);
+            });
+            
+});
+    
+
+/*
+DENDROGRAM: CLASSIFICAITON OF INSTRUMENTS
+*/
+// Setthe dimensions and margins of the diagram
 var margin = {top: 20, right: 90, bottom: 30, left: 90},
     width = 560 - margin.left - margin.right,
-    height = 590 - margin.top - margin.bottom;
+    height = 1190 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
 var innersvg = d3.select("body").append("svg")
     .attr("width", 1000)
-    .attr("height", 600)
+    .attr("height", 1200)
   .append("g")
     .attr("transform", "translate("
           + margin.left + "," + margin.top + ")");
@@ -334,7 +739,7 @@ function update(source) {
 
   // Toggle children on click.
   function click(d) {
-      console.log("testing");
+//      console.log(d);
 
     if (d.children) {
         d._children = d.children;
@@ -349,12 +754,13 @@ function update(source) {
 
 
 
-
+/*
+GEOMAP: CLASSIFICATION OF NATIONAL INSTRUMENTS
+*/
 
 // Width and height
-var width = document.getElementById('container').offsetWidth-60,
-    height = 500,
-    centered;
+var width = document.getElementById('container').offsetWidth,
+    height = 500;
 
 // Use the geoMercator to visualize the projection.
 var projection = d3.geoMercator()
@@ -410,6 +816,7 @@ d3.json("countries.geo.json").then(function(json) {
         //  through each element of the csv
 		for (var i = 0; i < data.length; i++) {
 			// Get data for csv element
+            console.log()
             var name = data[i].instrument;
             var nation = data[i].nation;
             var description = data[i].description;
@@ -447,7 +854,6 @@ d3.json("countries.geo.json").then(function(json) {
          .enter()
          .append("path")
          .attr("d", path)
-            
          // When a region is clicked on, call the clicked function to zoom in to the region. 
         .on("click", clicked)
          // set the boundary color in between countries
@@ -456,21 +862,23 @@ d3.json("countries.geo.json").then(function(json) {
          // set the colors for the regions
          // regions can be based on their instument type color:
          //color scheme for broad type:
-         //   1) Chordophone: #BE79DF
-         //   2) Aerophone: #00FFFF
-         //   3) Idiophone: #c90e0e
-         //   4) Membranophone: #194719
+         //   1) Chordophone: #89B6A5
+         //   2) Aerophone: #FFD275
+         //   3) Idiophone: #8D6A9F
+         //   4) Membranophone: #DB5A42
          .style("fill", function(d) {
+//            console.log(d.properties.specificType);
             var classification = d.properties.broadType;
             if(classification === "Chordophone") {
-                   return "#BE79DF";}//purple  
+                   return "#89B6A5";
+                    }//purple  
             if(classification === "Aerophone") {
-                   return "#00FFFF";}//aqua
+                   return "#FFD275";}//aqua
             if(classification === "Idiophone") {
-                   return "#c90e0e";}//red
+                   return "#8D6A9F";}//red
             if(classification === "Membranophone") {
-                   return "#194719";}
-            else {
+                   return "#DB5A42";
+            }else {
                 // light grey 
                 return "rgb(213,222,217)";}
         })//This is for the style attribute for the path
@@ -486,10 +894,10 @@ d3.json("countries.geo.json").then(function(json) {
                 d.properties.nation + "</div><div><b>Description</b>: " + d.properties.description + "</div><div><b>Broad Type</b>: " + d.properties.broadType + 
                 "</div><div><b>Minot Type</b>: " + d.properties.minotType + "</div><div><b>Specific Type</b>: " + d.properties.specificType)
                        .style("left", (d3.event.pageX ) + "px")
-                       .style("top", (d3.event.pageY) + "px")
-                div.select("button").on("click", function() {
-                    div.style("opacity", 0)
-                });
+                       .style("top", (d3.event.pageY) + "px");
+//                div.select("button").on("click", function() {
+//                    div.style("opacity", 0)
+//                });
             }else{
                 tooltip.html("Country: " + d.properties.nation)
                 .style("left", (d3.event.pageX ) + "px")
@@ -533,37 +941,38 @@ function clicked(d) {
       .duration(750)
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       .style("stroke-width", 1.5 / k + "px");
+  
 }
 
 // set the colors for the regions
     // regions can be based on their instument type color:
     //color scheme for minot type:
-    //   1) Composite chordophone: #32a852
-    //   2) Free aerophone: #7cb7eb
-    //   3) Non-free aerophone: #daa5f2
-    //   4) Struck idiophone: #e36db4
-    //   5) Simple chordophone: #871b1f
-    //   6) Plucked idiophone: #2f9685
-    //   7) Struck Membranophone: #edd539
+    //   1) Composite chordophone: #359c75
+    //   2) Free aerophone: #e0a936
+    //   3) Non-free aerophone: #916303
+    //   4) Struck idiophone: #67218a
+    //   5) Simple chordophone: #076943
+    //   6) Plucked idiophone: #c389e0
+    //   7) Struck Membranophone: #f29483
 function changeMinotColorScheme(){
     //change color scheme
     g.selectAll("path")
     .style("fill", function(d) {
             var classification = d.properties.minotType;
             if(classification === "Composite chordophone") {
-                   return "#32a852";} 
+                   return "#359c75";} 
             if(classification === "Free aerophone") {
-                   return "#7cb7eb";}
+                   return "#e0a936";}
             if(classification === "Non-free aerophones (wind instruments proper)") {
-                   return "#daa5f2";}
+                   return "#916303";}
             if(classification === "Struck idiophone") {
-                   return "#e36db4";}
+                   return "#67218a";}
             if(classification === "Simple chordophones or zither") {
-                   return "#871b1f";} 
+                   return "#076943";} 
             if(classification === "Struck membranophone") {
-                   return "#edd539";}
+                   return "#f29483";}
             if(classification === "Plucked idiophone") {
-                   return "#2f9685";}
+                   return "#c389e0";}
             else {
                 // light grey 
                 return "rgb(213,222,217)";}
@@ -602,19 +1011,119 @@ function changeMinotColorScheme(){
     
 }
 
+function changeSpecificColorScheme(){
+    g.selectAll("path")
+    .style("fill", function(d) {
+            var classification = d.properties.specificType;
+            if(classification === "Lute") {
+                   return "#B7D5B9";} 
+            if(classification === "Harp") {
+                   return "#66888A";}
+            if(classification === "Interruptive free aerophone") {
+                   return "#FEBE91";}
+            if(classification === "Displacement free aerophone") {
+                   return "#DD9733";}
+            if(classification === "Edge-blown aerophones or flute") {
+                   return "#C6A72A";} 
+            if(classification === "Trumpet") {
+                   return "#ACAE23";}
+            if(classification === "Reed aerophone") {
+                   return "#DBDC69";}
+            if(classification === "In the form of a comb") {
+                   return "#7E68B3";} 
+            if(classification === "Board zither") {
+                   return "#938CC7";}
+            if(classification === "Tube zither") {
+                   return "#701768";}
+            if(classification === "Bar zither") {
+                   return "#540F30";}
+            if(classification === "Indirectly struck idiophone") {
+                   return "#FD7BA1";} 
+            if(classification === "Directly struck idiophone") {
+                   return "#FA6373";}
+            if(classification === "Directly struck membranophone") {
+                   return "#FBBED7";}
+            else {
+                // light grey 
+                return "rgb(213,222,217)";}
+    });
+    
+    //change legend
+    legend.attr("x", width-400).attr("width", 400);
+    legendText.attr("x", width - 175);
+    
+    //legend
+    chordophoneColor.style("opacity", 0);
+    chordophoneText.style("opacity", 0);
+    aerophoneColor.style("opacity", 0);
+    aerophoneText.style("opacity", 0);
+    idiophoneColor.style("opacity", 0);
+    idiophoneText.style("opacity", 0);
+    membranophoneColor.style("opacity", 0);
+    membranophoneText.style("opacity", 0);
+    compositeChordophoneColor.style("opacity", 0);
+    compositeChordophoneText.style("opacity", 0);
+    freeAerophoneColor.style("opacity", 0);
+    freeAerophoneText.style("opacity", 0);
+    nonfreeAerophoneColor.style("opacity", 0);
+    nonfreeAerophoneColorText.style("opacity", 0);
+    struckIdiophoneColor.style("opacity", 0);
+    struckIdiophoneText.style("opacity", 0);
+    simpleChordophoneColor.style("opacity", 0);
+    simpleChordophoneText.style("opacity", 0);
+    struckMembranophoneColor.style("opacity", 0);
+    struckMembranophoneText.style("opacity", 0);
+    pluckedIdiophoneColor.style("opacity", 0);
+    pluckedIdiophoneText.style("opacity", 0);
+    
+    LuteColor.style("opacity", 1);
+    LuteText.style("opacity", 1);
+    HarpColor.style("opacity", 1);
+    HarpText.style("opacity", 1);
+    IFAColor.style("opacity", 1);
+    IFAText.style("opacity", 1);
+    DFAColor.style("opacity", 1);
+    DFAText.style("opacity", 1);
+    FluteColor.style("opacity", 1);
+    FluteText.style("opacity", 1);
+    TrumpetColor.style("opacity", 1);
+    TrumpetText.style("opacity", 1);
+    RAColor.style("opacity", 1);
+    RAText.style("opacity", 1);
+    CombColor.style("opacity", 1);
+    CombText.style("opacity", 1);
+    BarColor.style("opacity", 1);
+    BarText.style("opacity", 1);
+    BoardColor.style("opacity", 1);
+    BoardText.style("opacity", 1);
+    ISIColor.style("opacity", 1);
+    ISIText.style("opacity", 1);
+    DSIColor.style("opacity", 1);
+    DSIText.style("opacity", 1);
+    DSMColor.style("opacity", 1);
+    DSMText.style("opacity", 1);
+    TubeColor.style("opacity", 1);
+    TubeText.style("opacity", 1);
+}
+
+//color scheme for broad type:
+         //   1) Chordophone: #89B6A5
+         //   2) Aerophone: #FFD275
+         //   3) Idiophone: #E3A587
+         //   4) Membranophone: #DB5A42
 
 function changeBroadColorScheme(){
     g.selectAll("path")
     .style("fill", function(d) {
             var classification = d.properties.broadType;
             if(classification === "Chordophone") {
-                   return "#BE79DF";}//purple  
+                   return "#89B6A5";}//purple  
             if(classification === "Aerophone") {
-                   return "#00FFFF";}//aqua
+                   return "#FFD275";}//aqua
             if(classification === "Idiophone") {
-                   return "#c90e0e";}//red
+                   return "#8D6A9F";}//red
             if(classification === "Membranophone") {
-                   return "#194719";}
+                   return "#DB5A42";}
             else {
                 // light grey 
                 return "rgb(213,222,217)";}
@@ -659,7 +1168,7 @@ var legend = svg.append("rect")
     .attr("width", 200)
     .attr("rx", 10)
     .attr("ry", 10)
-    .style("opacity",0.5)
+    .style("opacity",0.9)
     .attr("height", 120)
     .attr("fill", "lightgrey")
     .style("stroke-size", "1px");
@@ -673,12 +1182,25 @@ var legendText = svg.append("text")
     .text("Legend");
 
 //Legend Properties for Broad Type
+
+//color scheme for broad type:
+         //   1) Chordophone: #E8AE68
+         //   2) Aerophone: #FFD275
+         //   3) Idiophone: #DB5A42
+         //   4) Membranophone: #DB5A42
+//   1) Composite chordophone: #359c75
+    //   2) Free aerophone: #e0a936
+    //   3) Non-free aerophone: #916303
+    //   4) Struck idiophone: #67218a
+    //   5) Simple chordophone: #076943
+    //   6) Plucked idiophone: #c389e0
+    //   7) Struck Membranophone: #f29483
 var chordophoneColor = svg.append("circle")
     .attr("class", "chordophoneColor")
     .attr("r", 5)
     .attr("cx", width-170)
     .attr("cy", height-80)
-    .style("fill", "#BE79DF");
+    .style("fill", "#89B6A5");
 
 var chordophoneText = svg.append("text")
     .attr("class", "chordophoneText")
@@ -693,7 +1215,7 @@ var aerophoneColor = svg.append("circle")
     .attr("r", 5)
     .attr("cx", width-170)
     .attr("cy", height-60)
-    .style("fill", "#00FFFF");
+    .style("fill", "#FFD275");
 
 var aerophoneText = svg.append("text")
     .attr("class", "aerophoneText")
@@ -706,7 +1228,7 @@ var idiophoneColor = svg.append("circle")
     .attr("r", 5)
     .attr("cx", width-170)
     .attr("cy", height-40)
-    .style("fill", "#c90e0e");
+    .style("fill", "#8D6A9F");
 
 var idiophoneText = svg.append("text")
     .attr("class", "label")
@@ -719,7 +1241,7 @@ var membranophoneColor = svg.append("circle")
     .attr("r", 5)
     .attr("cx", width-170)
     .attr("cy", height-20)
-    .style("fill", "#194719");
+    .style("fill", "#DB5A42");
 
 var membranophoneText = svg.append("text")
     .attr("class", "label")
@@ -735,7 +1257,7 @@ var compositeChordophoneColor = svg.append("circle")
     .attr("cx", width-230)
     .attr("cy", height-80)
     .style("opacity", 0)
-    .style("fill", "#32a852");
+    .style("fill", "#359c75");
 
 var compositeChordophoneText = svg.append("text")
     .attr("class", "chordophoneText")
@@ -752,7 +1274,7 @@ var struckMembranophoneColor = svg.append("circle")
     .attr("cx", width-230)
     .attr("cy", height-95)
     .style("opacity", 0)
-    .style("fill", "#edd539");
+    .style("fill", "#f29483");
 
 var struckMembranophoneText = svg.append("text")
     .attr("class", "chordophoneText")
@@ -769,7 +1291,7 @@ var freeAerophoneColor = svg.append("circle")
     .attr("cx", width-230)
     .attr("cy", height-65)
     .style("opacity", 0)
-    .style("fill", "#7cb7eb");
+    .style("fill", "#e0a936");
 
 var freeAerophoneText = svg.append("text")
     .attr("class", "aerophoneText")
@@ -784,7 +1306,7 @@ var nonfreeAerophoneColor = svg.append("circle")
     .attr("cx", width-230)
     .attr("cy", height-50)
     .style("opacity", 0)
-    .style("fill", "#daa5f2");
+    .style("fill", "#916303");
 
 var nonfreeAerophoneColorText= svg.append("text")
     .attr("class", "label")
@@ -799,7 +1321,7 @@ var struckIdiophoneColor = svg.append("circle")
     .attr("cx", width-230)
     .attr("cy", height-35)
     .style("opacity", 0)
-    .style("fill", "#e36db4");
+    .style("fill", "#67218a");
 
 var struckIdiophoneText = svg.append("text")
     .attr("class", "label")
@@ -814,7 +1336,7 @@ var simpleChordophoneColor = svg.append("circle")
     .attr("cx", width-230)
     .attr("cy", height-20)
     .style("opacity", 0)
-    .style("fill", "#871b1f");
+    .style("fill", "#076943");
 
 var simpleChordophoneText = svg.append("text")
     .attr("class", "label")
@@ -829,7 +1351,7 @@ var pluckedIdiophoneColor = svg.append("circle")
     .attr("cx", width-230)
     .attr("cy", height-5)
     .style("opacity", 0)
-    .style("fill", "#2f9685");
+    .style("fill", "#c389e0");
 
 var pluckedIdiophoneText = svg.append("text")
     .attr("class", "label")
@@ -839,44 +1361,213 @@ var pluckedIdiophoneText = svg.append("text")
     .style("opacity", 0)
     .text("Plucked Idiophone");
 
-anychart.onDocumentReady(function () {
-      // The data used in this sample can be obtained from the CDN
-      // https://cdn.anychart.com/samples/sunburst-charts/coffee-flavour-wheel/data.json
-      anychart.data.loadJsonFile(
-        'sunburstdata.json',
-        function (data) {
-          // makes tree from the data for the sample
-          var dataTree = anychart.data.tree(data, 'as-table');
+var LuteColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-375)
+    .attr("cy", height-95)
+    .style("opacity", 0)
+    .style("fill", "#B7D5B9");
 
-          // create sunburst chart
-          var chart = anychart.sunburst(dataTree);
+var LuteText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -335)
+    .attr("y", height-90)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Lute");
 
-          // set calculation mode
-          chart.calculationMode('ordinal-from-root');
+var HarpColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-375)
+    .attr("cy", height-80)
+    .style("opacity", 0)
+    .style("fill", "#66888A");
 
-          // set chart title
-          chart.title('Instrument Classifications');
+var HarpText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -333)
+    .attr("y", height-75)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Harp");
 
-          // set settings for the penultimate level labels
-          chart.level(-2).labels().position('radial');
+var IFAColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-375)
+    .attr("cy", height-65)
+    .style("opacity",0)
+    .style("fill", "#FEBE91");
 
-          // set chart labels settings
-          chart.labels().hAlign('center');
+var IFAText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -183)
+    .attr("y", height-60)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Interruptive Free Aerophone");
 
-          // set settings for leaves labels
-          chart.leaves().labels().minFontSize(8).textOverflow('...');
+var DFAColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-375)
+    .attr("cy", height-50)
+    .style("opacity", 0)
+    .style("fill", "#DD9733");
 
-          // the fill specified in the data has priority
-          // set point fill
-          chart.fill(function () {
-            return anychart.color.darken(this.parentColor, 0.15);
-          });
+var DFAText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -171)
+    .attr("y", height-45)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Displacement Free Aerophone");
 
-          // set container id for the chart
-          chart.container('container2');
-          // initiate chart drawing
-          chart.draw();
-        }
-      );
-    });
+var ISIColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-375)
+    .attr("cy", height-35)
+    .style("opacity", 0)
+    .style("fill", "#FD7BA1");
+
+var ISIText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -188)
+    .attr("y", height-30)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Indirectly Struck Idiophone");
+
+var DSIColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-375)
+    .attr("cy", height-20)
+    .style("opacity", 0)
+    .style("fill", "#FA6373");
+
+var DSIText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -198)
+    .attr("y", height-15)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Directly Struck Idiophone");
+
+var DSMColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-375)
+    .attr("cy", height-5)
+    .style("opacity", 0)
+    .style("fill", "#FBBED7");
+
+var DSMText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -154)
+    .attr("y", height)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Directly Struck Membranophone");
+
+var FluteColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-140)
+    .attr("cy", height-95)
+    .style("opacity", 0)
+    .style("fill", "#C6A72A");
+
+var FluteText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -97)
+    .attr("y", height -90)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Flute");
+
+var TrumpetColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-140)
+    .attr("cy", height-80)
+    .style("opacity", 0)
+    .style("fill", "#ACAE23");
+
+var TrumpetText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -77)
+    .attr("y", height -75)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Trumpet");
+
+var RAColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-140)
+    .attr("cy", height-65)
+    .style("opacity", 0)
+    .style("fill", "#DBDC69");
+
+var RAText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -23)
+    .attr("y", height -60)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Reed Aerophone");
+
+var CombColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-140)
+    .attr("cy", height-50)
+    .style("opacity", 0)
+    .style("fill", "#7E68B3");
+
+var CombText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -27)
+    .attr("y", height -45)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Form of a comb");
+
+var BoardColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-140)
+    .attr("cy", height-35)
+    .style("opacity", 0)
+    .style("fill", "#701768");
+
+var BoardText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -48)
+    .attr("y", height -30)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Board Zither");
+
+var BarColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-140)
+    .attr("cy", height-20)
+    .style("opacity", 0)
+    .style("fill", "#540F30");
+
+var BarText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -64)
+    .attr("y", height -15)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Bar Zither");
+
+var TubeColor = svg.append("circle")
+    .attr("r", 5)
+    .attr("cx", width-140)
+    .attr("cy", height-5)
+    .style("opacity", 0)
+    .style("fill", "#540F30");
+
+var TubeText = svg.append("text")
+    .attr("class", "label")
+    .attr("x", width -55)
+    .attr("y", height)
+    .style("text-anchor", "end")
+    .style("opacity", 0)
+    .text("Tube Zither");
 

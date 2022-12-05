@@ -13,6 +13,10 @@ body {
   stroke: black;
 }
 
+.bar:hover{
+    opacity: 0.5;
+}
+
 .rect {
   fill: #484848;
   opacity: 1;
