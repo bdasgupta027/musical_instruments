@@ -341,7 +341,9 @@ d3.csv("minot-type.csv")
   	.then((data) => {
         barX2.domain(data.map(function(d) { return d.letter; }));
         barY2.domain([0, d3.max(data, function(d) { return d.frequency; })]);
-
+        barG2.append("text").attr("text", "Number of Each Minot Type on Map")
+            .style("fill", "black")
+            .style("font-size", "15px");
         barG2.append("g")
             .attr("class", "axis axis--x")
             .attr("transform", "translate(0," + barHeight2 + ")")
@@ -468,33 +470,33 @@ d3.csv("specific-type.csv")
             .style("fill", function(d){
                 var classification = d.letter;
                 if(classification === "Lute") {
-                       return "#B7D5B9";} 
+                       return "#5EB182";} 
                 if(classification === "Harp") {
-                       return "#66888A";}
+                       return "#B1DBB3";}
                 if(classification === "Interruptive Free Aerophone") {
-                       return "#FEBE91";}
+                       return "#F8E473";}
                 if(classification === "Displacement Free Aerophone") {
-                       return "#DD9733";}
+                       return "#fcf4a3";}
                 if(classification === "Flute") {
-                       return "#C6A72A";} 
+                       return "#ffe5b4";} 
                 if(classification === "Trumpet") {
-                       return "#ACAE23";}
+                       return "#FFC30B";}
                 if(classification === "Reed Aerophone") {
                        return "#DBDC69";}
-                if(classification === "Form of a comb") {
-                       return "#7E68B3";} 
+                if(classification === "Form of a Comb") {
+                       return "#C8B9EE";} 
                 if(classification === "Board Zither") {
-                       return "#938CC7";}
+                       return "#6CA87A";}
                 if(classification === "Tube Zither") {
-                       return "#701768";}
+                       return "#A0C7A1";}
                 if(classification === "Bar Zither") {
-                       return "#540F30";}
+                       return "#3A895B";}
                 if(classification === "Indirectly Struck Idiophone") {
-                       return "#FD7BA1";} 
+                       return "#8D7CBC";} 
                 if(classification === "Directly Struck Idiophone") {
-                       return "#FA6373";}
+                       return "#ADA9D4";}
                 if(classification === "Directly Struck Membranophone") {
-                       return "#FBBED7";}
+                       return "#FBCFE2";}
             })
             .on("mouseover", function(d){
                 bartooltip3.transition()
@@ -644,30 +646,58 @@ function update(source) {
     .attr('r', 10)
     .style("fill", function(d) {
         var classification = d.data.name;
-        if(classification === "Composite chordophone") {
-               return "#32a852";} 
-        else if(classification === "Free aerophone") {
-               return "#7cb7eb";}
-        else if(classification === "Non-free aerophones (wind instruments proper)") {
-               return "#daa5f2";}
+        if(classification === "Composite chordophones") {
+           return "#359c75";} 
+        else if(classification === "Free aerophones") {
+               return "#e0a936";}
+        else if(classification === "Non-Free aerophones (wind instruments proper)") {
+               return "#916303";}
         else if(classification === "Struck idiophones") {
-               return "#e36db4";}
-        else if(classification === "Simple chordophones or zither") {
-               return "#871b1f";} 
+               return "#67218a";}
+        else if(classification === "Simple chordophones or zithers") {
+               return "#076943";} 
         else if(classification === "Struck membranophones") {
-               return "#edd539";}
+               return "#f29483";}
         else if(classification === "Plucked idiophones") {
-               return "#2f9685";}
+               return "#c389e0";}
         else if(classification === "Chordophones") {
-              return "#BE79DF";}//purple  
+              return "#89B6A5";}//purple  
         else if(classification === "Aerophones") {
-               return "#00FFFF";}//aqua
+               return "#FFD275";}//aqua
         else if(classification === "Idiophones") {
-               return "#c90e0e";}//red
+               return "#8D6A9F";}//red
         else if(classification === "Membranophones") {
-               return "#194719";
+               return "#DB5A42";}
+        else if(classification === "Lutes") {
+                   return "#5EB182";} 
+        else if(classification === "Harps") {
+                   return "#B1DBB3";}
+        else if(classification === "Interruptive free aerophones") {
+                   return "#F8E473";}
+        else if(classification === "Displacement free aerophones") {
+                   return "#fcf4a3";}
+        else if(classification === "Edge-blown aerophones or flutes") {
+                   return "#ffe5b4";} 
+        else if(classification === "Trumpets") {
+                   return "#FFC30B";}
+        else if(classification === "Reed aerophones") {
+                   return "#DBDC69";}
+        else if(classification === "In the form of a comb") {
+                   return "#C8B9EE";} 
+        else if(classification === "Board zithers") {
+                   return "#6CA87A";}
+        else if(classification === "Tube zithers") {
+                   return "#A0C7A1";}
+        else if(classification === "Bar zithers") {
+                   return "#3A895B";}
+        else if(classification === "Indirectly struck idiophones") {
+                   return "#8D7CBC";} 
+        else if(classification === "Directly struck idiophones") {
+                   return "#ADA9D4";}
+        else if(classification === "Directly struck membranophones") {
+                   return "#FBCFE2";
         }else{
-           return d._children ? "lightsteelblue" : "#fff"; 
+           return d._children ? "grey" : "#fff"; 
         }
     })
     .attr('cursor', 'pointer');
@@ -1014,35 +1044,66 @@ function changeMinotColorScheme(){
 function changeSpecificColorScheme(){
     g.selectAll("path")
     .style("fill", function(d) {
+        /*
+        if(classification === "Lute") {
+                       return "#5EB182";} 
+                if(classification === "Harp") {
+                       return "#B1DBB3";}
+                if(classification === "Interruptive Free Aerophone") {
+                       return "#F8E473";}
+                if(classification === "Displacement Free Aerophone") {
+                       return "#fcf4a3";}
+                if(classification === "Flute") {
+                       return "#ffe5b4";} 
+                if(classification === "Trumpet") {
+                       return "#FFC30B";}
+                if(classification === "Reed Aerophone") {
+                       return "#DBDC69";}
+                if(classification === "Form of a Comb") {
+                       return "#C8B9EE";} 
+                if(classification === "Board Zither") {
+                       return "#6CA87A";}
+                if(classification === "Tube Zither") {
+                       return "#A0C7A1";}
+                if(classification === "Bar Zither") {
+                       return "#3A895B";}
+                if(classification === "Indirectly Struck Idiophone") {
+                       return "#8D7CBC";} 
+                if(classification === "Directly Struck Idiophone") {
+                       return "#ADA9D4";}
+                if(classification === "Directly Struck Membranophone") {
+                       return "#FBCFE2";}
+            })
+            */
             var classification = d.properties.specificType;
             if(classification === "Lute") {
-                   return "#B7D5B9";} 
+                   return "#5EB182";} 
             if(classification === "Harp") {
-                   return "#66888A";}
+                   return "#B1DBB3";}
             if(classification === "Interruptive free aerophone") {
-                   return "#FEBE91";}
+                   return "#F8E473";}
             if(classification === "Displacement free aerophone") {
-                   return "#DD9733";}
+                   return "#fcf4a3";}
             if(classification === "Edge-blown aerophones or flute") {
-                   return "#C6A72A";} 
+                   return "#ffe5b4";} 
             if(classification === "Trumpet") {
-                   return "#ACAE23";}
+                   return "#FFC30B";}
             if(classification === "Reed aerophone") {
                    return "#DBDC69";}
             if(classification === "In the form of a comb") {
-                   return "#7E68B3";} 
+                   return "#C8B9EE";} 
             if(classification === "Board zither") {
-                   return "#938CC7";}
+                   return "#6CA87A";}
             if(classification === "Tube zither") {
-                   return "#701768";}
+                   return "#A0C7A1";}
             if(classification === "Bar zither") {
-                   return "#540F30";}
+                   return "#3A895B";}
             if(classification === "Indirectly struck idiophone") {
-                   return "#FD7BA1";} 
+                   return "#8D7CBC";} 
             if(classification === "Directly struck idiophone") {
-                   return "#FA6373";}
+                   return "#ADA9D4";}
             if(classification === "Directly struck membranophone") {
-                   return "#FBBED7";}
+                   return "#FBCFE2";}
             else {
                 // light grey 
                 return "rgb(213,222,217)";}
@@ -1366,7 +1427,7 @@ var LuteColor = svg.append("circle")
     .attr("cx", width-375)
     .attr("cy", height-95)
     .style("opacity", 0)
-    .style("fill", "#B7D5B9");
+    .style("fill", "#5EB182");
 
 var LuteText = svg.append("text")
     .attr("class", "label")
@@ -1381,7 +1442,7 @@ var HarpColor = svg.append("circle")
     .attr("cx", width-375)
     .attr("cy", height-80)
     .style("opacity", 0)
-    .style("fill", "#66888A");
+    .style("fill", "#B1DBB3");
 
 var HarpText = svg.append("text")
     .attr("class", "label")
@@ -1396,7 +1457,7 @@ var IFAColor = svg.append("circle")
     .attr("cx", width-375)
     .attr("cy", height-65)
     .style("opacity",0)
-    .style("fill", "#FEBE91");
+    .style("fill", "#F8E473");
 
 var IFAText = svg.append("text")
     .attr("class", "label")
@@ -1411,7 +1472,7 @@ var DFAColor = svg.append("circle")
     .attr("cx", width-375)
     .attr("cy", height-50)
     .style("opacity", 0)
-    .style("fill", "#DD9733");
+    .style("fill", "#fcf4a3");
 
 var DFAText = svg.append("text")
     .attr("class", "label")
@@ -1426,7 +1487,7 @@ var ISIColor = svg.append("circle")
     .attr("cx", width-375)
     .attr("cy", height-35)
     .style("opacity", 0)
-    .style("fill", "#FD7BA1");
+    .style("fill", "#8D7CBC");
 
 var ISIText = svg.append("text")
     .attr("class", "label")
@@ -1441,7 +1502,7 @@ var DSIColor = svg.append("circle")
     .attr("cx", width-375)
     .attr("cy", height-20)
     .style("opacity", 0)
-    .style("fill", "#FA6373");
+    .style("fill", "#ADA9D4");
 
 var DSIText = svg.append("text")
     .attr("class", "label")
@@ -1456,7 +1517,7 @@ var DSMColor = svg.append("circle")
     .attr("cx", width-375)
     .attr("cy", height-5)
     .style("opacity", 0)
-    .style("fill", "#FBBED7");
+    .style("fill", "#FBCFE2");
 
 var DSMText = svg.append("text")
     .attr("class", "label")
@@ -1471,7 +1532,7 @@ var FluteColor = svg.append("circle")
     .attr("cx", width-140)
     .attr("cy", height-95)
     .style("opacity", 0)
-    .style("fill", "#C6A72A");
+    .style("fill", "#ffe5b4");
 
 var FluteText = svg.append("text")
     .attr("class", "label")
@@ -1486,7 +1547,7 @@ var TrumpetColor = svg.append("circle")
     .attr("cx", width-140)
     .attr("cy", height-80)
     .style("opacity", 0)
-    .style("fill", "#ACAE23");
+    .style("fill", "#FFC30B");
 
 var TrumpetText = svg.append("text")
     .attr("class", "label")
@@ -1516,7 +1577,7 @@ var CombColor = svg.append("circle")
     .attr("cx", width-140)
     .attr("cy", height-50)
     .style("opacity", 0)
-    .style("fill", "#7E68B3");
+    .style("fill", "#C8B9EE");
 
 var CombText = svg.append("text")
     .attr("class", "label")
@@ -1531,7 +1592,7 @@ var BoardColor = svg.append("circle")
     .attr("cx", width-140)
     .attr("cy", height-35)
     .style("opacity", 0)
-    .style("fill", "#701768");
+    .style("fill", "#6CA87A");
 
 var BoardText = svg.append("text")
     .attr("class", "label")
@@ -1546,7 +1607,7 @@ var BarColor = svg.append("circle")
     .attr("cx", width-140)
     .attr("cy", height-20)
     .style("opacity", 0)
-    .style("fill", "#540F30");
+    .style("fill", "#3A895B");
 
 var BarText = svg.append("text")
     .attr("class", "label")
@@ -1561,7 +1622,7 @@ var TubeColor = svg.append("circle")
     .attr("cx", width-140)
     .attr("cy", height-5)
     .style("opacity", 0)
-    .style("fill", "#540F30");
+    .style("fill", "#A0C7A1");
 
 var TubeText = svg.append("text")
     .attr("class", "label")
@@ -1570,4 +1631,3 @@ var TubeText = svg.append("text")
     .style("text-anchor", "end")
     .style("opacity", 0)
     .text("Tube Zither");
-
