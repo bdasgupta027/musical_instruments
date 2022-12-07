@@ -16,7 +16,41 @@ body {
 .bar:hover{
     opacity: 0.5;
 }
+.info-container{
+    display:flex;
+    
+}
 
+.images{
+    width: 200px;
+    height: 200px;
+}
+
+.button{
+    background-color: lightblue; /* Green */
+  border: none;
+  color: black;
+  padding: 5px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+    border-radius: 4px;
+}
+
+.button:hover {
+  background-color: lightblue; /* Green */
+  color: white;
+}
+
+.info_rect{
+  margin:0 0 20px;
+  padding: 20px;
+  border:2px solid #333;
+  width 80%;
+  text-align:center;
+  fill: 'lightblue';
+}
 .rect {
   fill: #484848;
   opacity: 1;

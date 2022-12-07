@@ -18,14 +18,6 @@ Weblink for Project: https://github.com/bdasgupta027/musical_instruments
         <script type="text/javascript" src="https://d3js.org/topojson.v1.min.js"></script>
         <script type="text/javascript" src="https://d3js.org/d3.geo.projection.v0.min.js"></script>
         
-        <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-        <script src="https://cdn.anychart.com/releases/v8/js/anychart-sunburst.min.js"></script>
-        <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
-        <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
-        <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
-        <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
-        <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
-        
         <!-- CSS file -->
 	   <link rel="stylesheet" type="text/css" href="music.css">
         
@@ -33,17 +25,36 @@ Weblink for Project: https://github.com/bdasgupta027/musical_instruments
         
 	</head>
 	<body>
-        <h1><center><strong>Musical Instruments of the World</strong></center></h1>
+        <h1><center><strong>Classification of National Musical Instruments</strong></center></h1>
                
         <br>
+        <div class="info_rect">
         <p> <em><center> A presentation of various musical instruments and their classification across different cultures. In some cases, instruments remain in wide use within the nation but in others, their importance is primarily symbolic. Each instrument is also classified by the Hornbostel-Sachs system in which they're categorized based on the sound they produce.</center></em></p>
+        <div class="info-container"> 
+                <img src="chordophone.jpg" class = "images" alt="Chordophone">
+                <p> A chordophone is an instrument whose sounds are made by causing strings to vibrate , either by plucking them (as in a guitar) or drawing a bow across them (as in a violin) and struck as in a piano.</p>
+            
+            
+                <img src="aerophone.jpg" class="images" alt="Aerophone">
+                <p> An aerophone is any musical instrument that produces sound primarily by causing a body of air to vibrate without the use of strings or membranes and without the vibration of the instrument itself adding considerably to the sound.</p>
+            
+                <img src="idiophone.jpg" class="images" alt="Idiophone">
+                <p> An idiophone is an instrument the whole of which vibrates to produce a sound when struck, shaken, or scraped, such as a bell, gong, or rattle.</p>
+            
+                <img src="membranophone.jpg" class="images" alt="Membranophone">
+                <p> A membranophone is any of a class of musical instruments in which a stretched membrane vibrates to produce sound.</p>
+
+            
+        </div>
         
+        
+        </div>
         <center>
-            <INPUT TYPE = "button" VALUE = "Reload Page" onClick="history.go(0)">
-            <INPUT TYPE = "button" VALUE = "Color by Broad Type" onClick="changeBroadColorScheme()">
-            <INPUT TYPE = "button" VALUE = "Color by Minot Type" onClick="changeMinotColorScheme()">
+            <INPUT class = "button" TYPE = "button" VALUE = "Reload Page" onClick="history.go(0)">
+            <INPUT class = "button" TYPE = "button" VALUE = "Sort by Broad Type" onClick="changeBroadColorScheme()">
+            <INPUT class = "button" TYPE = "button" VALUE = "Sort by Minot Type" onClick="changeMinotColorScheme()">
                 </INPUT>
-            <INPUT TYPE = "button" VALUE = "Color by Specific Type" onClick="changeSpecificColorScheme()">
+            <INPUT class = "button" TYPE = "button" VALUE = "Sort by Specific Type" onClick="changeSpecificColorScheme()">
                 </INPUT>
             </INPUT>
             </INPUT>
