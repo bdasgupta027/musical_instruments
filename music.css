@@ -59,15 +59,20 @@ body {
     border: 2px solid black;
 }
 
+.geomap{
+    font-size: 25px;
+    font-weight: bold;
+}
+
 .info_rect{
-  background: #0063b2;
+
  fill: 'grey';
   margin:0 0 20px;
   padding: 20px;
   border:2px solid #333;
   width 80%;
   text-align:center;
-  color: white;
+  color: black;
   
 }
 .rect {
