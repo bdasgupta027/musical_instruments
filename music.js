@@ -595,6 +595,7 @@ d3.csv("specific-type.csv")
             .attr("fill", "black")
             .attr("text-anchor", "middle");
     
+    
         barG.append("text")
             .attr("x", "1210px")             
             .attr("y", 0 - (barMargin.top / 2 + 15))
