@@ -227,10 +227,16 @@ var barMargin = {top: 10, right: 50, bottom: 10, left: 100},
     barHeight = 300 - barMargin.top - barMargin.bottom;
 var barsvg = d3.select("body").append("svg")
     .attr("width", document.getElementById('container').offsetWidth)
-    .attr("height", 400)
+    .attr("height", 470)
   .append("g")
     .attr("transform", "translate("
-          + -50 + "," + 10 + ")");
+          + -50 + "," + 80 + ")");
+barsvg.append("text").attr("x", "805px")             
+        .attr("y", "-40px")
+        .attr("text-anchor", "middle")  
+        .style("font-size", "25px") 
+        .style("font-weight", "bold")  
+        .text("Classification Comparisons by the Numbers");
 
 var barX = d3.scaleBand().rangeRound([0, barWidth]).padding(0.1),
     barY = d3.scaleLinear().rangeRound([barHeight, 0]);
@@ -304,8 +310,9 @@ d3.csv("broad-type.csv")
                        .duration(100)
                        .style("background", "black")
                        .style("opacity", ".8");
+                var percentage = ((d.frequency/86)*100).toFixed(2);
                 // Format the tooltip
-                bartooltip.html(d.letter + " appears " + d.frequency + " times")
+                bartooltip.html(d.frequency + " countries have a(n) " + d.letter + " as their national instrument.<br>" + percentage + "% of the national instruments on the map are classified as a(n) " + d.letter + " according to the broad type classification.")
                        .style("left", (d3.event.pageX ) + "px")
                        .style("top", (d3.event.pageY) + "px");
             })
@@ -314,6 +321,33 @@ d3.csv("broad-type.csv")
                 .duration(500)
                 .style("opacity", 0);
             });
+    
+        barG.selectAll(".text")
+            .data(data)
+            .enter()
+            .append("text")
+            .text(function(d){
+                return d.frequency;
+            })
+            .attr("x", function(d, i) {
+                return barX(d.letter) + 45;
+            })
+            .attr("y", function(d){
+                return barY(d.frequency) - 2;
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "13px")
+            .style("font-weight", "bold")
+            .attr("fill", "black")
+            .attr("text-anchor", "middle");
+    
+        barG.append("text")
+        .attr("x", "215px")             
+        .attr("y", 0 - (barMargin.top / 2 + 15))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px")   
+        .style("text-decoration", "underline")
+        .text("Frequency of Instruments on Map Classified by Broad Type");
 });
     
             
@@ -398,8 +432,9 @@ d3.csv("minot-type.csv")
                        .duration(100)
                        .style("background", "black")
                        .style("opacity", ".8");
+                var percentage = ((d.frequency/86)*100).toFixed(2);
                 // Format the tooltip
-                bartooltip2.html(d.letter + " appears " + d.frequency + " times")
+                bartooltip2.html(d.frequency + " countries have a(n) " + d.letter + " as their national instrument.<br>" + percentage + "% of the national instruments on the map are classified as a(n) " + d.letter + " according to the minot type classification.")
                        .style("left", (d3.event.pageX ) + "px")
                        .style("top", (d3.event.pageY) + "px");
             })
@@ -408,6 +443,33 @@ d3.csv("minot-type.csv")
                 .duration(500)
                 .style("opacity", 0);
             });
+    
+            barG2.selectAll(".text")
+            .data(data)
+            .enter()
+            .append("text")
+            .text(function(d){
+                return d.frequency;
+            })
+            .attr("x", function(d, i) {
+                return barX2(d.letter) + 25;
+            })
+            .attr("y", function(d){
+                return barY2(d.frequency) -2;
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "13px")
+            .attr("font-weight", "bold")
+            .attr("fill", "black")
+            .attr("text-anchor", "middle");
+    
+            barG.append("text")
+            .attr("x", "710px")             
+            .attr("y", 0 - (barMargin.top / 2 + 15))
+            .attr("text-anchor", "middle")  
+            .style("font-size", "16px") 
+            .style("text-decoration", "underline")
+            .text("Frequency of Instruments on Map Classified by Minot Type");
     });
     
 //SPECIFIC TYPE BAR GRAPH
@@ -422,12 +484,10 @@ var bartooltip3 = d3.select("body")
                 .style("opacity", 0);
 var barX3 = d3.scaleBand().rangeRound([0, barWidth3]).padding(0.1),
     barY3 = d3.scaleLinear().rangeRound([barHeight3, 0]);
-
 d3.csv("specific-type.csv")
   	.then((data) => {
         return data.map((d) => {
           d.frequency = +d.frequency;
-          console.log(d.frequency);
           return d;  
         });
 		})
@@ -503,8 +563,9 @@ d3.csv("specific-type.csv")
                        .duration(100)
                        .style("background", "black")
                        .style("opacity", ".8");
+                var percentage = ((d.frequency/86)*100).toFixed(2);
                 // Format the tooltip
-                bartooltip3.html(d.letter + " appears " + d.frequency + " times")
+                bartooltip3.html(d.frequency + " countries have a(n) " + d.letter + " as their national instrument.<br>" + percentage + "% of the national instruments on the map are classified as a(n) " + d.letter + " according to the specific type classification.")
                        .style("left", (d3.event.pageX ) + "px")
                        .style("top", (d3.event.pageY) + "px");
             })
@@ -514,8 +575,36 @@ d3.csv("specific-type.csv")
                 .style("opacity", 0);
             });
             
-});
     
+        barG3.selectAll(".text")
+            .data(data)
+            .enter()
+            .append("text")
+            .text(function(d){
+                return d.frequency;
+            })
+            .attr("x", function(d, i) {
+                return barX3(d.letter) + 12;
+            })
+            .attr("y", function(d){
+                return barY3(d.frequency) - 2;
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "13px")
+            .attr("font-weight", "bold")
+            .attr("fill", "black")
+            .attr("text-anchor", "middle");
+    
+        barG.append("text")
+            .attr("x", "1210px")             
+            .attr("y", 0 - (barMargin.top / 2 + 15))
+            .attr("text-anchor", "middle")  
+            .style("font-size", "16px") 
+            .style("text-decoration", "underline")
+            .attr("font-decoration", "underlined")
+            .text("Frequency of Instruments on Map Classified by Specific Type");
+});
+   
 
 /*
 DENDROGRAM: CLASSIFICAITON OF INSTRUMENTS
@@ -1021,6 +1110,34 @@ function changeMinotColorScheme(){
     idiophoneText.style("opacity", 0);
     membranophoneColor.style("opacity", 0);
     membranophoneText.style("opacity", 0);
+    LuteColor.style("opacity", 0);
+    LuteText.style("opacity", 0);
+    HarpColor.style("opacity", 0);
+    HarpText.style("opacity", 0);
+    IFAColor.style("opacity", 0);
+    IFAText.style("opacity", 0);
+    DFAColor.style("opacity", 0);
+    DFAText.style("opacity", 0);
+    FluteColor.style("opacity", 0);
+    FluteText.style("opacity", 0);
+    TrumpetColor.style("opacity", 0);
+    TrumpetText.style("opacity", 0);
+    RAColor.style("opacity", 0);
+    RAText.style("opacity", 0);
+    CombColor.style("opacity", 0);
+    CombText.style("opacity", 0);
+    BarColor.style("opacity", 0);
+    BarText.style("opacity", 0);
+    BoardColor.style("opacity", 0);
+    BoardText.style("opacity", 0);
+    ISIColor.style("opacity", 0);
+    ISIText.style("opacity", 0);
+    DSIColor.style("opacity", 0);
+    DSIText.style("opacity", 0);
+    DSMColor.style("opacity", 0);
+    DSMText.style("opacity", 0);
+    TubeColor.style("opacity", 0);
+    TubeText.style("opacity", 0);
     
     //add new legend values
     compositeChordophoneColor.style("opacity", 10);
@@ -1193,6 +1310,7 @@ function changeBroadColorScheme(){
     //change legend
     legend.attr("x", width-200).attr("width", 200);
     legendText.attr("x", width - 75);
+    legend.style("opacity", 0.9);
     
     //remove current legend values
     chordophoneColor.style("opacity", 1);
@@ -1219,6 +1337,34 @@ function changeBroadColorScheme(){
     struckMembranophoneText.style("opacity", 0);
     pluckedIdiophoneColor.style("opacity", 0);
     pluckedIdiophoneText.style("opacity", 0);
+    LuteColor.style("opacity", 0);
+    LuteText.style("opacity", 0);
+    HarpColor.style("opacity", 0);
+    HarpText.style("opacity", 0);
+    IFAColor.style("opacity", 0);
+    IFAText.style("opacity", 0);
+    DFAColor.style("opacity", 0);
+    DFAText.style("opacity", 0);
+    FluteColor.style("opacity", 0);
+    FluteText.style("opacity", 0);
+    TrumpetColor.style("opacity", 0);
+    TrumpetText.style("opacity", 0);
+    RAColor.style("opacity", 0);
+    RAText.style("opacity", 0);
+    CombColor.style("opacity", 0);
+    CombText.style("opacity", 0);
+    BarColor.style("opacity", 0);
+    BarText.style("opacity", 0);
+    BoardColor.style("opacity", 0);
+    BoardText.style("opacity", 0);
+    ISIColor.style("opacity", 0);
+    ISIText.style("opacity", 0);
+    DSIColor.style("opacity", 0);
+    DSIText.style("opacity", 0);
+    DSMColor.style("opacity", 0);
+    DSMText.style("opacity", 0);
+    TubeColor.style("opacity", 0);
+    TubeText.style("opacity", 0);
 }
 
 // Legend for Instrument Classification 
