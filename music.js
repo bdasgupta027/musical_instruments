@@ -618,12 +618,19 @@ var margin = {top: 20, right: 90, bottom: 30, left: 90},
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
 var innersvg = d3.select("body").append("svg")
-    .attr("width", 1000)
+    .attr("width", 1500)
     .attr("height", 1200)
   .append("g")
     .attr("transform", "translate("
           + margin.left + "," + margin.top + ")");
+innersvg.append("text").attr("x", "675px")             
+        .attr("y", "20px")
+        .attr("text-anchor", "middle")  
+        .style("font-size", "25px") 
+        .style("font-weight", "bold")  
+        .text("Classification Tree by Hornbostel-Sachs System");
 
+    
 var i = 0,
     duration = 750,
     root;
