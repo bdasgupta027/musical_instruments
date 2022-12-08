@@ -3,6 +3,7 @@ body {
    background-image: url("http://backgroundimages.eu/albums/background/papyrus-old-stationery.jpg");
    background-size: cover;    
 */
+/*    background-color: #9CC3D5;*/
 }
 
 /* Define colors for circles and rectangles */
@@ -18,14 +19,19 @@ body {
 }
 .info-container{
     display:flex;
-    
+    background-color: 'lightblue'; 
+    fill: 'lightblue';
 }
 
 .images{
-    width: 200px;
+    width: 150px;
     height: 200px;
 }
 
+.description{
+    width: 200px;
+    padding: 0px 8px;
+}
 .button{
     background-color: lightblue; /* Green */
   border: none;
@@ -35,21 +41,34 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-    border-radius: 4px;
+  border-radius: 4px;
+  border: 2px solid;
+  border-color: darkblue;
 }
 
 .button:hover {
   background-color: lightblue; /* Green */
   color: white;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-color: darkblue;
+  border: 2px;
+}
+
+#container{
+    background-color: white;
+    border: 2px solid black;
 }
 
 .info_rect{
+  background: #0063b2;
+ fill: 'grey';
   margin:0 0 20px;
   padding: 20px;
   border:2px solid #333;
   width 80%;
   text-align:center;
-  fill: 'lightblue';
+  color: white;
+  
 }
 .rect {
   fill: #484848;
